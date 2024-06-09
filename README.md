@@ -8,3 +8,4 @@ Create a folder with an appropriate name and do your tests and experiments in th
 | ------ | ------ | ------ |
 |   ExampleFolderName1     |   Whether floopflaps can whizbang   |   Pending     |
 |   ExampleFolderName2     |   Use Whifflewopples to trigger clickclacks   |   Too hard to configure so probably not a good option     |
+|   event-driven-with-kafka | Does Kafka allow us to publish and consume events? Does it give us observability into the events? | Pending as of 2024/06/09|
