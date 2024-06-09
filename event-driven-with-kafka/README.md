@@ -32,6 +32,8 @@ services:
 | Problem | Solution |
 | ---- | ---- |
 | The command `docker-compose` could not be found in this WSL 2 distro. | Start Docker Desktop. |
+| Services had mkdir errors and exited. | Added `user:root` to `docker-compose.yml`. |
+| Kafdrop had a StackOverFlow error. | Removed JVM options from `docker-compose.yml`. |
 
 # Troubleshooting notes
 ## All containers exit and never stably run.
