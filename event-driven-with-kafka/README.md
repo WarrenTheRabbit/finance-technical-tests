@@ -22,3 +22,8 @@ services:
 
     kafdrop:
 ```
+
+# Problems encountered
+| Problem | Solution |
+| ---- | ---- |
+| The command `docker-compose` could not be found in this WSL 2 distro. | Start Docker Desktop. |
