@@ -8,6 +8,7 @@ It currently uses sqlite for its persistence but this can be changed by injectin
 Navigate to the folder `transaction-storage-with-sqlite`:
 ```
 $ pip install -r requirements
+$ export DB_USER=sqlite:///transactions.db
 $ alembic upgrade head
 $ uvicorn transactions.web.app:app --reload
 ```
