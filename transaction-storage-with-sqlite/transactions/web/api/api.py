@@ -20,6 +20,7 @@ def get_transactions(parent_category: Optional[str] = None,
                      child_category: Optional[str] = None,
                      start_date: Optional[datetime] = None,
                      end_date: Optional[datetime] = None,
+                     user_id: Optional[str] = None,
                      limit: Optional[int] = None
 ):
     with UnitOfWork() as unit_of_work:
@@ -29,6 +30,7 @@ def get_transactions(parent_category: Optional[str] = None,
             limit=limit,
             parent_category=parent_category,
             child_category=child_category,
+            user_id=user_id,
             start_date=start_date,
             end_date=end_date,
         )
