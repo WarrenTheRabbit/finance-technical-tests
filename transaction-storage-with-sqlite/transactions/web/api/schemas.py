@@ -12,6 +12,10 @@ class CreateTransactionSchema(BaseModel):
     created: datetime
     parent_category: str
     child_category: str
+    amount: float
+    raw_text: str
+    description: str
+    payment_method: str
 
 
 class GetTransactionSchema(CreateTransactionSchema):

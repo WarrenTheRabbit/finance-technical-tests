@@ -21,6 +21,10 @@ def get_transactions(parent_category: Optional[str] = None,
                      start_date: Optional[datetime] = None,
                      end_date: Optional[datetime] = None,
                      user_id: Optional[str] = None,
+                     amount: Optional[float] = None,
+                     raw_text: Optional[str] = None,
+                     description: Optional[str] = None,
+                     payment_method: Optional[str] = None,
                      limit: Optional[int] = None
 ):
     with UnitOfWork() as unit_of_work:
@@ -33,6 +37,10 @@ def get_transactions(parent_category: Optional[str] = None,
             user_id=user_id,
             start_date=start_date,
             end_date=end_date,
+            amount=amount,
+            raw_text=raw_text,
+            description=description,
+            payment_method=payment_method,
         )
     return {"transactions": [result.dict() for result in results]}
 
@@ -44,11 +52,7 @@ def create_transaction(payload: CreateTransactionSchema):
         transactions_service = TransactionsService(repo)
         try:            
             transaction = transactions_service.store_transaction(
-                payload.transaction_id,
-                payload.user_id,
-                payload.created,
-                payload.parent_category,
-                payload.child_category)
+                **payload.model_dump())
             return_payload = transaction.dict()
             unit_of_work.commit()
         except IntegrityError as e:

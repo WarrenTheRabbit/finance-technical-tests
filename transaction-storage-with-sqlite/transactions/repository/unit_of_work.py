@@ -9,7 +9,6 @@ DB_URL = os.getenv('DB_URL')
 
 assert DB_URL is not None, 'DB_URL environment variable needed.'
 
-
 class UnitOfWork:
     def __init__(self):
         self.session_maker = sessionmaker(bind=create_engine(DB_URL))

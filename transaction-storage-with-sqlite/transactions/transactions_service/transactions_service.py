@@ -9,13 +9,21 @@ class TransactionsService:
                           user_id, 
                           created,
                           parent_category, 
-                          child_category
+                          child_category,
+                          amount,
+                          raw_text,
+                          description,
+                          payment_method
         ):
         return self.transactions_repository.add(transaction_id,
                                                 user_id,
                                                 created,
                                                 parent_category,
-                                                child_category
+                                                child_category,
+                                                amount,
+                                                raw_text,
+                                                description,
+                                                payment_method
         )
     
     def get_stored_transaction(self, transaction_id):

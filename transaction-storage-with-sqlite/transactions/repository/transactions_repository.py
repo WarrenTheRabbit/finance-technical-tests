@@ -12,12 +12,20 @@ class TransactionsRepository:
             user_id, 
             created,
             parent_category, 
-            child_category):
+            child_category,
+            amount, 
+            raw_text,
+            description,
+            payment_method):
         record = TransactionModel(transaction_id=transaction_id,
                                   user_id=user_id,
                                   parent_category=parent_category,
                                   child_category=child_category,
-                                  created=created
+                                  created=created,
+                                  amount=amount,
+                                  raw_text=raw_text,
+                                  description=description,
+                                  payment_method=payment_method
         )
         self.session.add(record)
         return Transaction(**record.dict())
