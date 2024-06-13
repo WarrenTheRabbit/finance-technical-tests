@@ -3,7 +3,19 @@ import { Box, Typography } from '@mui/material';
 
 const TopBox = ({ title, value, description, icon }) => {
   return (
-    <Box sx={{ padding: '20px', bgcolor: "#fff", borderRadius: "16px", textAlign: 'center', boxShadow: 1 }}>
+    <Box 
+      sx={{ 
+        padding: '20px', 
+        bgcolor: "#fff", 
+        borderRadius: "16px", 
+        textAlign: 'center', 
+        boxShadow: 1,
+        height: '100%',  // Ensure it takes full height
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center' 
+      }}
+    >
       <Typography variant="h4" gutterBottom>{icon}</Typography>
       <Typography variant="h6" gutterBottom>{title}</Typography>
       <Typography variant="h4" color="primary">{value}</Typography>

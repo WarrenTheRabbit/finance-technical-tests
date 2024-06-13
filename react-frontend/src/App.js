@@ -1,5 +1,5 @@
-import React, { useState }  from 'react';
-import { Container, Box, Grid, Typography } from '@mui/material'; 
+import React, { useState } from 'react';
+import { Container, Box, Grid, Typography, CssBaseline, Toolbar } from '@mui/material';
 import Sidebar from './components/Sidebar';
 import FinancialOverview from './components/FinancialOverview';
 import ExpenseDonutChart from './components/ExpenseDonutChart';
@@ -48,28 +48,34 @@ const App = () => {
         <>
           <Grid container spacing={2}>
             <Grid item xs={12} md={4}>
-              <TopBox
-                title="Transactions"
-                value={`${totalTransactions} Transactions`}
-                description={`+10 from last week`}
-                icon="📈"
-              />
+              <Box sx={{ height: '100%' }}>
+                <TopBox
+                  title="Transactions"
+                  value={`${totalTransactions} Transactions`}
+                  description={`+10 from last week`}
+                  icon="📈"
+                />
+              </Box>
             </Grid>
             <Grid item xs={12} md={4}>
-              <TopBox
-                title={`Spent most on ${mostSpentCategory.category}`}
-                value={`+$${mostSpentCategory.amount}`}
-                description={`from last week`}
-                icon="🏠"
-              />
+              <Box sx={{ height: '100%' }}>
+                <TopBox
+                  title={`Spent most on ${mostSpentCategory.category}`}
+                  value={`+$${mostSpentCategory.amount}`}
+                  description={`from last week`}
+                  icon="🏠"
+                />
+              </Box>
             </Grid>
             <Grid item xs={12} md={4}>
-              <TopBox
-                title={`Saved most on ${mostSavedCategory.category}`}
-                value={`+$${mostSavedCategory.amount}`}
-                description={`from last week`}
-                icon="💾"
-              />
+              <Box sx={{ height: '100%' }}>
+                <TopBox
+                  title={`Saved most on ${mostSavedCategory.category}`}
+                  value={`+$${mostSavedCategory.amount}`}
+                  description={`from last week`}
+                  icon="💾"
+                />
+              </Box>
             </Grid>
           </Grid>
           <Box sx={{ padding: '20px', marginTop: 2, bgcolor: "#fff", borderRadius: "16px" }}>
@@ -99,14 +105,16 @@ const App = () => {
   }
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#f5f5f5' }}>
-      <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />   
-      <Container sx={{ flexGrow: 1, backgroundColor: '#f5f5f5', padding: { xs: 2, md: 3 } }}>
-        <Box sx={{ marginY: 2 }}>
+    <>
+      <CssBaseline />
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#f5f5f5' }}>
+        <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />   
+        <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, md: 3 }, mt: { xs: 7, md: 0 } }}>
+          <Toolbar />
           {content}
         </Box>
-      </Container>
-    </Box>
+      </Box>
+    </>
   )
 };
 
