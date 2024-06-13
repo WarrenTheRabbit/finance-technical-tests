@@ -9,7 +9,7 @@ const CustomMenuIcon = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  alignItems: 'center',
+  alignItems: 'flex-start',  // Align lines to the left
   '& div': {
     width: '20px',
     height: '3px',
@@ -112,7 +112,7 @@ const Sidebar = ({ user, onButtonClick, activeButton }) => {
               <div></div>
             </CustomMenuIcon>
           </MuiIconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, textAlign: 'center', fontFamily: 'Jomhuria', fontSize: '24px', background: 'linear-gradient(90deg, #4b99c1, #3572bd)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <Typography variant="h4" noWrap component="div" sx={{ flexGrow: 1, textAlign: 'center', fontFamily: 'Jomhuria', fontSize: '48px', background: 'linear-gradient(90deg, #4b99c1, #3572bd)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', ml: '-24px' }}>
             UPLift
           </Typography>
         </Toolbar>
