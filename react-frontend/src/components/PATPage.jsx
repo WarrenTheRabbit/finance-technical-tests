@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const PATPage = () => {
+  const navigate = useNavigate();
   const [pat, setPat] = useState('');
   const [error, setError] = useState('');
 
@@ -9,6 +11,7 @@ const PATPage = () => {
     // Mock PAT logic
     if (pat === 'validPAT') {
       // Logic to handle valid PAT
+      navigate('/processing');
     } else {
       setError('Your PAT has expired! / Invalid PAT! Please try again.');
     }

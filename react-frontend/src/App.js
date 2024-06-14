@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { Box, CssBaseline, Toolbar, Grid, Typography } from '@mui/material';
 import Sidebar from './components/Sidebar';
 import Transactions from './components/Transactions';
@@ -10,6 +10,7 @@ import SignUpPage from './components/SignUpPage';
 import LoginPage from './components/LoginPage';
 import PATPage from './components/PATPage';
 import TermsAndConditions from './components/TermsAndConditions';
+import ProcessingPage from './components/ProcessingPage';
 import ExpenseDonutChart from './components/ExpenseDonutChart';
 import ExpenseTable from './components/ExpenseTable';
 
@@ -81,7 +82,8 @@ const Dashboard = () => (
   </>
 );
 
-const App = () => {
+const AppContent = () => {
+  const location = useLocation();
   const [activeButton, setActiveButton] = useState('dashboard');
 
   const handleButtonClick = (button) => {
@@ -89,27 +91,32 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <CssBaseline />
-      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#f5f5f5' }}>
-        <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />
-        <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, md: 3 }, mt: { xs: 7, md: 0 } }}>
-          <Toolbar />
-          <Routes>
-            <Route path="/" element={<InstructionPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/pat" element={<PATPage />} />
-            <Route path="/terms" element={<TermsAndConditions />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/transactions" element={<Transactions />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes to InstructionPage */}
-          </Routes>
-        </Box>
+    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#f5f5f5' }}>
+      {location.pathname !== '/' && <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />}
+      <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, md: 3 }, mt: { xs: 7, md: 0 } }}>
+        <Toolbar />
+        <Routes>
+          <Route path="/" element={<InstructionPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/pat" element={<PATPage />} />
+          <Route path="/terms" element={<TermsAndConditions />} />
+          <Route path="/processing" element={<ProcessingPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes to InstructionPage */}
+        </Routes>
       </Box>
-    </Router>
+    </Box>
   );
 };
+
+const App = () => (
+  <Router>
+    <CssBaseline />
+    <AppContent />
+  </Router>
+);
 
 export default App;
