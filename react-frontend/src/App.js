@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
-import { Box, CssBaseline, Toolbar, Grid, Typography } from '@mui/material';
+import { Box, CssBaseline, Grid, Typography } from '@mui/material';
 import Sidebar from './components/Sidebar';
 import Transactions from './components/Transactions';
 import About from './components/About';
@@ -93,21 +93,18 @@ const AppContent = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#f5f5f5' }}>
       {location.pathname !== '/' && <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />}
-      <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, md: 3 }, mt: { xs: 7, md: 0 } }}>
-        <Toolbar />
-        <Routes>
-          <Route path="/" element={<InstructionPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/pat" element={<PATPage />} />
-          <Route path="/terms" element={<TermsAndConditions />} />
-          <Route path="/processing" element={<ProcessingPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/transactions" element={<Transactions />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes to InstructionPage */}
-        </Routes>
-      </Box>
+      <Routes>
+        <Route path="/" element={<InstructionPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/pat" element={<PATPage />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/processing" element={<ProcessingPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes to InstructionPage */}
+      </Routes>
     </Box>
   );
 };

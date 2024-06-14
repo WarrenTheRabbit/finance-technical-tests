@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import WelcomeImage from '../assets/images/stuck-at-home-imagination.svg'
 
 const InstructionPage = () => {
   const navigate = useNavigate();
@@ -11,7 +12,20 @@ const InstructionPage = () => {
 
   return (
     <Box sx={{ padding: 2, bgcolor: '#eff4f7' }}>
-      <Box sx={{ maxWidth: 800, width: '100%', textAlign: 'center', margin: '0 auto', pt: 4 }}>
+      <Box sx={{ maxWidth: 800, width: '100%', textAlign: 'center', margin: '0 auto', pt: 4, position: 'relative' }}>
+        <Box 
+          component="img"
+          src={WelcomeImage}
+          alt="Welcome to UPLift"
+          sx={{
+            position: 'absolute',
+            bottom: 12,
+            right: 32,
+            width: '80px', 
+            height: 'auto',
+            zIndex: 2
+          }}
+        />
         <Typography 
           variant="h3" 
           gutterBottom 
@@ -20,10 +34,32 @@ const InstructionPage = () => {
             fontWeight: 'bold', 
             fontSize: '20px', 
             color: '#f9c818', 
-            textShadow: '0 0 6px #ffffff', 
-            mb: 4 
+            lineHeight: "19px",
+            textShadow: '8px 8px 14px rgba(0, 0, 0, 0.5)', // Outer shadow
+            WebkitTextStroke: '11px white', // White border
+            mb: 4,
+            position: "absolute",
+            transform: 'translateX(56%)',
           }}
         >
+          {/* Using this component for its white stroke */}
+          Welcome to UPLift!
+        </Typography>
+        <Typography 
+          variant="h3" 
+          gutterBottom 
+          sx={{ 
+            fontFamily: 'Inter', 
+            fontWeight: 'bold', 
+            fontSize: '20px', 
+            color: '#f9c818', 
+            lineHeight: "19px",
+            mb: 4,
+            zIndex: 1,
+            position: "relative"
+          }}
+        >
+          {/* This is the text visible to user */}
           Welcome to UPLift!
         </Typography>
         <Typography 
