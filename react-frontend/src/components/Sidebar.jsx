@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Avatar, Box, Divider, IconButton, Typography, Drawer, List, ListItem, ListItemText, Toolbar, AppBar, IconButton as MuiIconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 
@@ -31,9 +32,15 @@ const CustomMenuIcon = styled('div')(({ theme }) => ({
 
 const Sidebar = ({ user, onButtonClick, activeButton }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
+  };
+
+  const handleNavigation = (path) => {
+    onButtonClick(path);
+    navigate(`/${path}`);
   };
 
   const drawer = (
@@ -74,13 +81,13 @@ const Sidebar = ({ user, onButtonClick, activeButton }) => {
       <Divider sx={{ width: '100%', marginTop: 2, marginBottom: 2 }} />
 
       <List sx={{ width: '100%' }}>
-        <ListItem button onClick={() => onButtonClick('dashboard')} selected={activeButton === 'dashboard'}>
+        <ListItem button onClick={() => handleNavigation('dashboard')} selected={activeButton === 'dashboard'}>
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button onClick={() => onButtonClick('transactions')} selected={activeButton === 'transactions'}>
+        <ListItem button onClick={() => handleNavigation('transactions')} selected={activeButton === 'transactions'}>
           <ListItemText primary="Transactions" />
         </ListItem>
-        <ListItem button onClick={() => onButtonClick('about')} selected={activeButton === 'about'}>
+        <ListItem button onClick={() => handleNavigation('about')} selected={activeButton === 'about'}>
           <ListItemText primary="About" />
         </ListItem>
       </List>

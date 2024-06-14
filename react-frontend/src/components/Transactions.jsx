@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Box, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, TextField, InputAdornment, Checkbox, Pagination, Button, Tooltip } from '@mui/material';
+import { Box, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, TextField, InputAdornment, Checkbox, Pagination, Button, Tooltip, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const transactionsData = [
-  { category: 'Good Life', date: '11/30/2023', amount: 60.00 },
-  { category: 'Transport', date: '11/30/2023', amount: 40.00 },
-  { category: 'Home', date: '11/30/2023', amount: 10.00 },
-  { category: 'Personal', date: '11/30/2023', amount: 30.00 },
+  { category: 'Good Life', date: '11/30/2023', amount: 60.00, description: '' },
+  { category: 'Transport', date: '11/30/2023', amount: 40.00, description: '' },
+  { category: 'Home', date: '11/30/2023', amount: 10.00, description: '' },
+  { category: 'Personal', date: '11/30/2023', amount: 30.00, description: '' },
   // Add more fake data as needed
 ];
 
@@ -23,6 +23,9 @@ const Transactions = () => {
   const [filteredTransactions, setFilteredTransactions] = useState(transactionsData);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedAll, setSelectedAll] = useState(false);
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [description, setDescription] = useState('');
 
   const handleSearch = () => {
     const filtered = transactionsData.filter(transaction =>
@@ -35,7 +38,52 @@ const Transactions = () => {
   };
 
   const handleSelectAll = (event) => {
-    setSelectedAll(event.target.checked);
+    const checked = event.target.checked;
+    setSelectedAll(checked);
+    setSelectedRows(checked ? filteredTransactions.map(transaction => transaction) : []);
+  };
+
+  const handleSelectRow = (transaction) => {
+    const selectedIndex = selectedRows.indexOf(transaction);
+    let newSelectedRows = [];
+
+    if (selectedIndex === -1) {
+      newSelectedRows = newSelectedRows.concat(selectedRows, transaction);
+    } else if (selectedIndex === 0) {
+      newSelectedRows = newSelectedRows.concat(selectedRows.slice(1));
+    } else if (selectedIndex === selectedRows.length - 1) {
+      newSelectedRows = newSelectedRows.concat(selectedRows.slice(0, -1));
+    } else if (selectedIndex > 0) {
+      newSelectedRows = newSelectedRows.concat(
+        selectedRows.slice(0, selectedIndex),
+        selectedRows.slice(selectedIndex + 1),
+      );
+    }
+
+    setSelectedRows(newSelectedRows);
+  };
+
+  const handleEditClick = () => {
+    if (selectedRows.length > 0) {
+      setIsDialogOpen(true);
+    }
+  };
+
+  const handleDialogClose = () => {
+    setIsDialogOpen(false);
+  };
+
+  const handleSaveDescription = () => {
+    setFilteredTransactions(prevState => prevState.map(transaction => {
+      if (selectedRows.includes(transaction)) {
+        return { ...transaction, description };
+      }
+      return transaction;
+    }));
+    setIsDialogOpen(false);
+    setSelectedRows([]);
+    setSelectedAll(false);
+    setDescription('');
   };
 
   const transactionsPerPage = 10;
@@ -65,7 +113,7 @@ const Transactions = () => {
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: 2 }}>
         <Tooltip title="Edit">
-          <IconButton>
+          <IconButton onClick={handleEditClick}>
             <EditIcon />
           </IconButton>
         </Tooltip>
@@ -81,24 +129,29 @@ const Transactions = () => {
             <TableRow>
               <TableCell padding="checkbox">
                 <Checkbox
-                  indeterminate={displayedTransactions.some(transaction => !transaction.selected) && displayedTransactions.some(transaction => transaction.selected)}
+                  indeterminate={selectedRows.length > 0 && selectedRows.length < displayedTransactions.length}
                   checked={selectedAll}
                   onChange={handleSelectAll}
                 />
               </TableCell>
               <TableCell>Category</TableCell>
               <TableCell>Date</TableCell>
+              <TableCell>Description</TableCell>
               <TableCell>Amount</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {displayedTransactions.map((transaction, index) => (
-              <TableRow key={index}>
+              <TableRow key={index} selected={selectedRows.includes(transaction)}>
                 <TableCell padding="checkbox">
-                  <Checkbox checked={selectedAll} />
+                  <Checkbox
+                    checked={selectedRows.includes(transaction)}
+                    onChange={() => handleSelectRow(transaction)}
+                  />
                 </TableCell>
                 <TableCell>{transaction.category}</TableCell>
                 <TableCell>{transaction.date}</TableCell>
+                <TableCell>{transaction.description}</TableCell>
                 <TableCell>${transaction.amount.toFixed(2)}</TableCell>
               </TableRow>
             ))}
@@ -113,6 +166,31 @@ const Transactions = () => {
           color="primary"
         />
       </Box>
+      <Dialog open={isDialogOpen} onClose={handleDialogClose}>
+        <DialogTitle>Edit Description</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Enter a description for the selected transactions.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            label="Description"
+            type="text"
+            fullWidth
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDialogClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleSaveDescription} color="primary">
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
