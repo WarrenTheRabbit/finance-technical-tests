@@ -8,3 +8,4 @@ Create a folder with an appropriate name and do your tests and experiments in th
 | ------ | ------ | ------ |
 |   [event-driven-with-kafka](event-driven-with-kafka/README.md)| Does Kafka allow us to publish and consume events? Does it give us observability into the events? | Can run a Kafka cluster (took 135 minutes). But can I use it? |
 | [transaction-storage-with-sqlite](transaction-storage-with-sqlite/README.md) | Can I create a Restful API that can store and retrieve transaction objects - all of them, by category, by date range, user, etc? | Yes. The schema and Transaction class are just placeholders though.|
+| [fastapi-backend](fastapi-backend/README.md) | Wiring FastAPI and React together. | Completed. |
