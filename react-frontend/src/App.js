@@ -109,9 +109,12 @@ const AppContent = () => {
     setActiveButton(button);
   };
 
+  const hideSidebarRoutes = ['/signup', '/login', '/terms', '/pat', '/processing'];
   return (
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#f5f5f5' }}>
-      {location.pathname !== '/' && <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />}
+        {!hideSidebarRoutes.includes(location.pathname) && (
+          <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />
+        )}
       <Routes>
         <Route path="/" element={<InstructionPage />} />
         <Route path="/signup" element={<SignUpPage />} />

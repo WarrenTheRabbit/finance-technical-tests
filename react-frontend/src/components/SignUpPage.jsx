@@ -14,7 +14,6 @@ const SignUpPage = () => {
   const [error, setError] = useState('');
 
   const handleSignUp = () => {
-    // Mock sign-up validation
     if (!firstName || !lastName || !email || !password || !confirmPassword) {
       setError('Please fill in all fields');
       return;
@@ -28,18 +27,18 @@ const SignUpPage = () => {
       return;
     }
 
-    // Store user data in local storage
     const user = { firstName, lastName, email, password };
     localStorage.setItem('user', JSON.stringify(user));
 
-    // Mock successful registration
     navigate('/login', { state: { registered: true } });
   };
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', bgcolor: '#f5f5f5' }}>
-      <Box sx={{ width: 300, padding: 4, bgcolor: '#fff', borderRadius: '16px', boxShadow: 3 }}>
-        <Typography variant="h4" gutterBottom textAlign="center">Sign Up</Typography>
+    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', bgcolor: '#eff4f7' }}>
+      <Box sx={{ width: 400, padding: 4, bgcolor: 'linear-gradient(90deg, #9362f1, #6760f1)', borderRadius: '25px', boxShadow: 3 }}>
+        <Typography variant="h4" gutterBottom textAlign="center" sx={{ fontWeight: 'bold', color: '#fff' }}>
+          Sign Up
+        </Typography>
         <TextField
           label="First Name"
           variant="outlined"
@@ -47,6 +46,7 @@ const SignUpPage = () => {
           margin="normal"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
+          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
         />
         <TextField
           label="Last Name"
@@ -55,6 +55,7 @@ const SignUpPage = () => {
           margin="normal"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
+          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
         />
         <TextField
           label="Email"
@@ -63,6 +64,7 @@ const SignUpPage = () => {
           margin="normal"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
         />
         <TextField
           label="Password"
@@ -72,6 +74,7 @@ const SignUpPage = () => {
           margin="normal"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
         />
         <TextField
           label="Confirm Password"
@@ -81,22 +84,25 @@ const SignUpPage = () => {
           margin="normal"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
         />
         <FormControlLabel
           control={<Checkbox checked={newsletter} onChange={(e) => setNewsletter(e.target.checked)} name="newsletter" />}
           label="I wish to receive the newsletter and other promotional emails."
+          sx={{ color: '#fff' }}
         />
         <FormControlLabel
           control={<Checkbox checked={terms} onChange={(e) => setTerms(e.target.checked)} name="terms" />}
           label={
             <>
-              I have read and agree to the <Link to="/terms">terms and conditions</Link>.
+              I have read and agree to the <Link to="/terms" style={{ color: '#fff' }}>terms and conditions</Link>.
             </>
           }
+          sx={{ color: '#fff' }}
         />
         {error && <Typography color="error" variant="body2" sx={{ mt: 1 }}>{error}</Typography>}
-        <Button variant="contained" color="primary" fullWidth sx={{ marginTop: 2 }} onClick={handleSignUp}>
-          Register
+        <Button variant="contained" fullWidth sx={{ marginTop: 2, bgcolor: '#34d399', color: '#fff', borderRadius: '25px' }} onClick={handleSignUp}>
+          Sign in
         </Button>
       </Box>
     </Box>
