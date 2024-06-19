@@ -104,6 +104,7 @@ const fetcher = (...args) => fetch(...args).then(res => {
 const AppContent = () => {
   const location = useLocation();
   const [activeButton, setActiveButton] = useState('dashboard');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track if user is logged in
 
   const handleButtonClick = (button) => {
     setActiveButton(button);
@@ -112,9 +113,9 @@ const AppContent = () => {
   const hideSidebarRoutes = ['/signup', '/login', '/terms', '/pat', '/processing'];
   return (
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#f5f5f5' }}>
-        {!hideSidebarRoutes.includes(location.pathname) && (
-          <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />
-        )}
+      {isLoggedIn && !hideSidebarRoutes.includes(location.pathname) && (
+        <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />
+      )}
       <Routes>
         <Route path="/" element={<InstructionPage />} />
         <Route path="/signup" element={<SignUpPage />} />

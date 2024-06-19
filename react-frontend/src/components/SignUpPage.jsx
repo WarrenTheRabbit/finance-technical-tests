@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button, Checkbox, FormControlLabel } from '@mui/material';
 import { useNavigate, Link } from 'react-router-dom';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import logo from '../assets/images/logo.svg';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -12,6 +15,24 @@ const SignUpPage = () => {
   const [newsletter, setNewsletter] = useState(false);
   const [terms, setTerms] = useState(false);
   const [error, setError] = useState('');
+  const [emailError, setEmailError] = useState('');
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailChange = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+    if (email === '') {
+      setEmailError('');
+    } else if (!validateEmail(email)) {
+      setEmailError('Invalid email! Please try again!');
+    } else {
+      setEmailError('');
+    }
+  };
 
   const handleSignUp = () => {
     if (!firstName || !lastName || !email || !password || !confirmPassword) {
@@ -35,7 +56,20 @@ const SignUpPage = () => {
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', bgcolor: '#eff4f7' }}>
-      <Box sx={{ width: 400, padding: 4, bgcolor: 'linear-gradient(90deg, #9362f1, #6760f1)', borderRadius: '25px', boxShadow: 3 }}>
+      <Box sx={{ textAlign: 'center', marginBottom: 3 }}>
+        <img src={logo} alt="Logo" style={{ width: '50px', marginBottom: '20px' }} />
+      </Box>
+      <Box 
+        sx={{ 
+          width: 400, 
+          padding: 4, 
+          borderRadius: '25px', 
+          boxShadow: 3 
+        }}
+        style={{
+          background: 'linear-gradient(90deg, #6760f1, #9362f1)',
+        }}
+      >
         <Typography variant="h4" gutterBottom textAlign="center" sx={{ fontWeight: 'bold', color: '#fff' }}>
           Sign Up
         </Typography>
@@ -46,7 +80,18 @@ const SignUpPage = () => {
           margin="normal"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
-          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
+          sx={{ 
+            backgroundColor: 'white', 
+            borderRadius: '30px',
+            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+            fontFamily: 'Inria Sans',
+          }}
+          InputLabelProps={{
+            style: { fontFamily: 'Inria Sans' },
+          }}
+          InputProps={{
+            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+          }}
         />
         <TextField
           label="Last Name"
@@ -55,7 +100,18 @@ const SignUpPage = () => {
           margin="normal"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
-          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
+          sx={{ 
+            backgroundColor: 'white', 
+            borderRadius: '30px',
+            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+            fontFamily: 'Inria Sans',
+          }}
+          InputLabelProps={{
+            style: { fontFamily: 'Inria Sans' },
+          }}
+          InputProps={{
+            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+          }}
         />
         <TextField
           label="Email"
@@ -63,8 +119,32 @@ const SignUpPage = () => {
           fullWidth
           margin="normal"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
+          onChange={handleEmailChange}
+          sx={{ 
+            backgroundColor: 'white', 
+            borderRadius: '30px',
+            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+            fontFamily: 'Inria Sans',
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: emailError ? 'red' : 'rgba(0, 0, 0, 0.1)',
+              },
+              '&:hover fieldset': {
+                borderColor: emailError ? 'red' : 'rgba(0, 0, 0, 0.1)',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: emailError ? 'red' : 'rgba(0, 0, 0, 0.1)',
+              },
+            },
+          }}
+          InputLabelProps={{
+            style: { fontFamily: 'Inria Sans', color: emailError ? 'red' : 'rgba(0, 0, 0, 0.54)' },
+          }}
+          InputProps={{
+            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+          }}
+          error={!!emailError}
+          helperText={emailError}
         />
         <TextField
           label="Password"
@@ -74,7 +154,18 @@ const SignUpPage = () => {
           margin="normal"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
+          sx={{ 
+            backgroundColor: 'white', 
+            borderRadius: '30px',
+            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+            fontFamily: 'Inria Sans',
+          }}
+          InputLabelProps={{
+            style: { fontFamily: 'Inria Sans' },
+          }}
+          InputProps={{
+            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+          }}
         />
         <TextField
           label="Confirm Password"
@@ -84,26 +175,71 @@ const SignUpPage = () => {
           margin="normal"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          sx={{ backgroundColor: 'white', borderRadius: '8px' }}
+          sx={{ 
+            backgroundColor: 'white', 
+            borderRadius: '30px',
+            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+            fontFamily: 'Inria Sans',
+          }}
+          InputLabelProps={{
+            style: { fontFamily: 'Inria Sans' },
+          }}
+          InputProps={{
+            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+          }}
         />
         <FormControlLabel
-          control={<Checkbox checked={newsletter} onChange={(e) => setNewsletter(e.target.checked)} name="newsletter" />}
-          label="I wish to receive the newsletter and other promotional emails."
-          sx={{ color: '#fff' }}
-        />
-        <FormControlLabel
-          control={<Checkbox checked={terms} onChange={(e) => setTerms(e.target.checked)} name="terms" />}
-          label={
-            <>
-              I have read and agree to the <Link to="/terms" style={{ color: '#fff' }}>terms and conditions</Link>.
-            </>
+          control={
+            <Checkbox 
+              icon={<CheckBoxOutlineBlankIcon sx={{ color: 'white' }} />} 
+              checkedIcon={<CheckBoxIcon sx={{ color: 'white' }} />}
+              checked={newsletter} 
+              onChange={(e) => setNewsletter(e.target.checked)} 
+              name="newsletter"
+              sx={{ '&.Mui-checked': { color: 'white' } }}
+            />
           }
-          sx={{ color: '#fff' }}
+          label={<Typography sx={{ fontFamily: 'Inria Sans', fontSize: '0.75rem', color: '#fff' }}>I wish to receive the newsletter and other promotional emails.</Typography>}
+        />
+        <FormControlLabel
+          control={
+            <Checkbox 
+              icon={<CheckBoxOutlineBlankIcon sx={{ color: 'white' }} />} 
+              checkedIcon={<CheckBoxIcon sx={{ color: 'white' }} />}
+              checked={terms} 
+              onChange={(e) => setTerms(e.target.checked)} 
+              name="terms"
+              sx={{ '&.Mui-checked': { color: 'white' } }}
+            />
+          }
+          label={
+            <Typography sx={{ fontFamily: 'Inria Sans', fontSize: '0.75rem', color: '#fff' }}>
+              I have read and agree to the <Link to="/terms" style={{ color: '#fff' }}>terms and conditions</Link>.
+            </Typography>
+          }
         />
         {error && <Typography color="error" variant="body2" sx={{ mt: 1 }}>{error}</Typography>}
-        <Button variant="contained" fullWidth sx={{ marginTop: 2, bgcolor: '#34d399', color: '#fff', borderRadius: '25px' }} onClick={handleSignUp}>
-          Sign in
-        </Button>
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Button 
+            variant="contained" 
+            sx={{ 
+              marginTop: 2, 
+              background: 'linear-gradient(to right, #8adbb1, #87ddc7)', 
+              color: '#fff', 
+              borderRadius: '25px', 
+              padding: '10px 30px', 
+              fontWeight: 'bold', 
+              fontSize: '1rem', // Adjusted font size
+              textTransform: 'uppercase',
+              width: 'auto',
+              minWidth: '150px',
+              maxWidth: '250px'
+            }} 
+            onClick={handleSignUp}
+          >
+            Sign in
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
