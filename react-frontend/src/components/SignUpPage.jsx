@@ -294,7 +294,7 @@ const SignUpPage = () => {
               }} 
               onClick={handleSignUp}
             >
-              Sign in
+              Sign up
             </Button>
           </Box>
         </Box>
