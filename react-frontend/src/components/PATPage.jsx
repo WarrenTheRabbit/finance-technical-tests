@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/images/logo.svg';
+import qrCode from '../assets/images/qr-code.svg';  // Add the path to your QR code image
 
 const PATPage = () => {
   const navigate = useNavigate();
@@ -17,25 +19,100 @@ const PATPage = () => {
     }
   };
 
+  const handlePatChange = (e) => {
+    setPat(e.target.value);
+    if (e.target.value === '') {
+      setError('');
+    }
+  };
+
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', bgcolor: '#f5f5f5' }}>
-      <Box sx={{ width: 300, padding: 4, bgcolor: '#fff', borderRadius: '16px', boxShadow: 3 }}>
-        <Typography variant="h4" gutterBottom textAlign="center">Your PAT</Typography>
-        <TextField label="Personal Access Token" variant="outlined" fullWidth margin="normal" value={pat} onChange={(e) => setPat(e.target.value)} />
-        {error && <Typography color="error" variant="body2" sx={{ mt: 1 }}>{error}</Typography>}
-        <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }} onClick={handleAddPAT}>
-          Add PAT
-        </Button>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', bgcolor: '#eff4f7' }}>
+      <Box sx={{ textAlign: 'center', marginTop: 2 }}>
+        <img src={logo} alt="Logo" style={{ width: '50px', marginTop: '50px' }} />
       </Box>
-      <Box sx={{ mt: 4, textAlign: 'center' }}>
-        <Typography variant="h5" gutterBottom>Step 1!</Typography>
-        <Typography variant="body1">Open Up on your phone;</Typography>
-        <Typography variant="h5" gutterBottom>Step 2!</Typography>
-        <Typography variant="body1">Scroll across to the Up Tab;</Typography>
-        <Typography variant="h5" gutterBottom>Step 3!</Typography>
-        <Typography variant="body1">Select Scan QR Code then open this link;</Typography>
-        <Typography variant="h5" gutterBottom>Step 4!</Typography>
-        <Typography variant="body1">Scan the QR code, then follow the instructions;</Typography>
+      <Box 
+        sx={{ 
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexGrow: 1,
+          width: '100%',
+        }}
+      >
+        <Box 
+          sx={{ 
+            width: 400, 
+            padding: 4, 
+            borderRadius: '25px', 
+            boxShadow: 3,
+            textAlign: 'center'
+          }}
+          style={{
+            background: 'linear-gradient(90deg, #6760f1, #9362f1)',
+          }}
+        >
+          <Typography variant="h4" gutterBottom textAlign="center" sx={{ fontWeight: 'bold', color: '#fff' }}>
+            Your PAT
+          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+            <img src={qrCode} alt="QR Code" style={{ width: '150px', height: '150px' }} />
+          </Box>
+          <Typography variant="body1" sx={{ color: '#fff', fontFamily: 'Inria Sans', fontSize: 11, mb: 2, maxWidth: '150px', textAlign: 'left', margin: '0 auto' }}>
+            Instruction: Scan the QR code, follow the instructions on that page and paste your token below.
+          </Typography>
+          <TextField
+            label="Personal Access Token"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={pat}
+            onChange={handlePatChange}
+            sx={{ 
+              backgroundColor: 'white', 
+              borderRadius: '30px',
+              boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+              fontFamily: 'Inria Sans',
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                },
+              },
+            }}
+            InputLabelProps={{
+              style: { fontFamily: 'Inria Sans', color: 'rgba(0, 0, 0, 0.54)' },
+            }}
+            InputProps={{
+              style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+            }}
+          />
+          {error && <Typography color="error" variant="body2" sx={{ mt: 1, fontSize: '0.8rem' }}>{error}</Typography>}
+          <Button 
+            variant="contained" 
+            sx={{ 
+              marginTop: 2, 
+              background: 'linear-gradient(to right, #8adbb1, #87ddc7)', 
+              color: '#fff', 
+              borderRadius: '25px', 
+              padding: '10px 30px', 
+              fontWeight: 'bold', 
+              fontSize: '1rem', 
+              textTransform: 'uppercase',
+              width: 'auto',
+              minWidth: '150px',
+              maxWidth: '250px'
+            }} 
+            onClick={handleAddPAT}
+          >
+            Add PAT
+          </Button>
+        </Box>
       </Box>
     </Box>
   );

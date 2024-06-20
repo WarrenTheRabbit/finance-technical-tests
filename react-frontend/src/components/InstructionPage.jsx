@@ -15,8 +15,32 @@ const InstructionPage = () => {
     navigate('/signup');
   };
 
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
   return (
-    <Box sx={{ padding: 2, bgcolor: '#eff4f7' }}>
+    <Box sx={{ padding: 2, bgcolor: '#eff4f7', position: 'relative' }}>
+      <Button
+        onClick={handleLogin}
+        sx={{
+          position: 'absolute',
+          top: 16,
+          right: 16,
+          fontFamily: 'Inter',
+          fontWeight: 'bold',
+          color: '#afbdc7',
+          textTransform: 'none',
+          background: 'none',
+          boxShadow: 'none',
+          '&:hover': {
+            background: 'none',
+            boxShadow: 'none'
+          }
+        }}
+      >
+        Log In
+      </Button>
       <Box sx={{ maxWidth: 800, width: '100%', textAlign: 'center', margin: '0 auto', pt: 4, position: 'relative' }}>
         <Box 
           component="img"
@@ -85,7 +109,7 @@ const InstructionPage = () => {
         </Typography>
       </Box>
       <Box sx={{ maxWidth: 800, width: '100%', margin: '0 auto', mb: 8, padding: 3, bgcolor: '#fff', borderRadius: 2, boxShadow: 1 }}>
-      <Typography 
+        <Typography 
           variant="h3" 
           gutterBottom 
           sx={{ 
@@ -143,7 +167,7 @@ const InstructionPage = () => {
           alt="Home Office"
           sx={{
             position: 'absolute',
-            bottom: 510,
+            bottom: 680,
             right: 15,
             width: '180px', 
             height: 'auto',
@@ -152,7 +176,7 @@ const InstructionPage = () => {
         />
       </Box>
       <Box sx={{ maxWidth: 800, width: '100%', margin: '0 auto', mb: 14, padding: 3, bgcolor: '#fff', borderRadius: 2, boxShadow: 1 }}>
-      <Typography 
+        <Typography 
           variant="h3" 
           gutterBottom 
           sx={{ 
@@ -210,7 +234,7 @@ const InstructionPage = () => {
           alt="Amigos Outdoors"
           sx={{
             position: 'absolute',
-            bottom: 316,
+            bottom: 490,
             right: 280,
             width: '140px', 
             height: 'auto',
@@ -219,7 +243,7 @@ const InstructionPage = () => {
         />
       </Box>
       <Box sx={{ maxWidth: 800, width: '100%', margin: '0 auto', mb: 8, padding: 3, bgcolor: '#fff', borderRadius: 2, boxShadow: 1 }}>
-      <Typography 
+        <Typography 
           variant="h3" 
           gutterBottom 
           sx={{ 
@@ -277,7 +301,7 @@ const InstructionPage = () => {
           alt="Croods the Feedback"
           sx={{
             position: 'absolute',
-            bottom: 64,
+            bottom: 238,
             right: 10,
             width: '150px', 
             height: 'auto',
@@ -286,7 +310,7 @@ const InstructionPage = () => {
         />
       </Box>
       <Box sx={{ maxWidth: 800, width: '100%', margin: '0 auto', textAlign: 'left', mb: 4 }}>
-      <Typography 
+        <Typography 
           variant="h3" 
           gutterBottom 
           sx={{ 

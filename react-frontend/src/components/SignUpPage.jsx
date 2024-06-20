@@ -55,190 +55,248 @@ const SignUpPage = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', bgcolor: '#eff4f7' }}>
-      <Box sx={{ textAlign: 'center', marginBottom: 3 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', bgcolor: '#eff4f7' }}>
+      <Box sx={{ textAlign: 'center', marginTop: 2 }}>
         <img src={logo} alt="Logo" style={{ width: '50px', marginBottom: '20px' }} />
       </Box>
       <Box 
         sx={{ 
-          width: 400, 
-          padding: 4, 
-          borderRadius: '25px', 
-          boxShadow: 3 
-        }}
-        style={{
-          background: 'linear-gradient(90deg, #6760f1, #9362f1)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'flex-start',  // Align items to flex-start
+          width: '100%',
+          mt: 2
         }}
       >
-        <Typography variant="h4" gutterBottom textAlign="center" sx={{ fontWeight: 'bold', color: '#fff' }}>
-          Sign Up
-        </Typography>
-        <TextField
-          label="First Name"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+        <Box 
           sx={{ 
-            backgroundColor: 'white', 
-            borderRadius: '30px',
-            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
-            fontFamily: 'Inria Sans',
+            width: 400, 
+            padding: 4, 
+            borderRadius: '25px', 
+            boxShadow: 3,
+            textAlign: 'center'
           }}
-          InputLabelProps={{
-            style: { fontFamily: 'Inria Sans' },
+          style={{
+            background: 'linear-gradient(90deg, #6760f1, #9362f1)',
           }}
-          InputProps={{
-            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
-          }}
-        />
-        <TextField
-          label="Last Name"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          sx={{ 
-            backgroundColor: 'white', 
-            borderRadius: '30px',
-            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
-            fontFamily: 'Inria Sans',
-          }}
-          InputLabelProps={{
-            style: { fontFamily: 'Inria Sans' },
-          }}
-          InputProps={{
-            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
-          }}
-        />
-        <TextField
-          label="Email"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          value={email}
-          onChange={handleEmailChange}
-          sx={{ 
-            backgroundColor: 'white', 
-            borderRadius: '30px',
-            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
-            fontFamily: 'Inria Sans',
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: emailError ? 'red' : 'rgba(0, 0, 0, 0.1)',
-              },
-              '&:hover fieldset': {
-                borderColor: emailError ? 'red' : 'rgba(0, 0, 0, 0.1)',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: emailError ? 'red' : 'rgba(0, 0, 0, 0.1)',
-              },
-            },
-          }}
-          InputLabelProps={{
-            style: { fontFamily: 'Inria Sans', color: emailError ? 'red' : 'rgba(0, 0, 0, 0.54)' },
-          }}
-          InputProps={{
-            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
-          }}
-          error={!!emailError}
-          helperText={emailError}
-        />
-        <TextField
-          label="Password"
-          type="password"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          sx={{ 
-            backgroundColor: 'white', 
-            borderRadius: '30px',
-            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
-            fontFamily: 'Inria Sans',
-          }}
-          InputLabelProps={{
-            style: { fontFamily: 'Inria Sans' },
-          }}
-          InputProps={{
-            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
-          }}
-        />
-        <TextField
-          label="Confirm Password"
-          type="password"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          sx={{ 
-            backgroundColor: 'white', 
-            borderRadius: '30px',
-            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
-            fontFamily: 'Inria Sans',
-          }}
-          InputLabelProps={{
-            style: { fontFamily: 'Inria Sans' },
-          }}
-          InputProps={{
-            style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
-          }}
-        />
-        <FormControlLabel
-          control={
-            <Checkbox 
-              icon={<CheckBoxOutlineBlankIcon sx={{ color: 'white' }} />} 
-              checkedIcon={<CheckBoxIcon sx={{ color: 'white' }} />}
-              checked={newsletter} 
-              onChange={(e) => setNewsletter(e.target.checked)} 
-              name="newsletter"
-              sx={{ '&.Mui-checked': { color: 'white' } }}
-            />
-          }
-          label={<Typography sx={{ fontFamily: 'Inria Sans', fontSize: '0.75rem', color: '#fff' }}>I wish to receive the newsletter and other promotional emails.</Typography>}
-        />
-        <FormControlLabel
-          control={
-            <Checkbox 
-              icon={<CheckBoxOutlineBlankIcon sx={{ color: 'white' }} />} 
-              checkedIcon={<CheckBoxIcon sx={{ color: 'white' }} />}
-              checked={terms} 
-              onChange={(e) => setTerms(e.target.checked)} 
-              name="terms"
-              sx={{ '&.Mui-checked': { color: 'white' } }}
-            />
-          }
-          label={
-            <Typography sx={{ fontFamily: 'Inria Sans', fontSize: '0.75rem', color: '#fff' }}>
-              I have read and agree to the <Link to="/terms" style={{ color: '#fff' }}>terms and conditions</Link>.
-            </Typography>
-          }
-        />
-        {error && <Typography color="error" variant="body2" sx={{ mt: 1 }}>{error}</Typography>}
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Button 
-            variant="contained" 
+        >
+          <Typography variant="h4" gutterBottom textAlign="center" sx={{ fontWeight: 'bold', color: '#fff' }}>
+            Sign Up
+          </Typography>
+          <TextField
+            label="First Name"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             sx={{ 
-              marginTop: 2, 
-              background: 'linear-gradient(to right, #8adbb1, #87ddc7)', 
-              color: '#fff', 
-              borderRadius: '25px', 
-              padding: '10px 30px', 
-              fontWeight: 'bold', 
-              fontSize: '1rem', // Adjusted font size
-              textTransform: 'uppercase',
-              width: 'auto',
-              minWidth: '150px',
-              maxWidth: '250px'
-            }} 
-            onClick={handleSignUp}
-          >
-            Sign in
-          </Button>
+              backgroundColor: 'white', 
+              borderRadius: '30px',
+              boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+              fontFamily: 'Inria Sans',
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                },
+              },
+            }}
+            InputLabelProps={{
+              style: { fontFamily: 'Inria Sans', color: 'rgba(0, 0, 0, 0.54)' },
+            }}
+            InputProps={{
+              style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+            }}
+          />
+          <TextField
+            label="Last Name"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            sx={{ 
+              backgroundColor: 'white', 
+              borderRadius: '30px',
+              boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+              fontFamily: 'Inria Sans',
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                },
+              },
+            }}
+            InputLabelProps={{
+              style: { fontFamily: 'Inria Sans', color: 'rgba(0, 0, 0, 0.54)' },
+            }}
+            InputProps={{
+              style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+            }}
+          />
+          <TextField
+            label="Email"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={email}
+            onChange={handleEmailChange}
+            sx={{ 
+              backgroundColor: 'white', 
+              borderRadius: '30px',
+              boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+              fontFamily: 'Inria Sans',
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: emailError ? 'red' : 'rgba(0, 0, 0, 0.1)',
+                },
+                '&:hover fieldset': {
+                  borderColor: emailError ? 'red' : 'rgba(0, 0, 0, 0.1)',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: emailError ? 'red' : 'rgba(0, 0, 0, 0.1)',
+                },
+              },
+            }}
+            InputLabelProps={{
+              style: { fontFamily: 'Inria Sans', color: emailError ? 'red' : 'rgba(0, 0, 0, 0.54)' },
+            }}
+            InputProps={{
+              style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+            }}
+            error={!!emailError}
+            helperText={emailError}
+          />
+          <TextField
+            label="Password"
+            type="password"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            sx={{ 
+              backgroundColor: 'white', 
+              borderRadius: '30px',
+              boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+              fontFamily: 'Inria Sans',
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                },
+              },
+            }}
+            InputLabelProps={{
+              style: { fontFamily: 'Inria Sans', color: 'rgba(0, 0, 0, 0.54)' },
+            }}
+            InputProps={{
+              style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+            }}
+          />
+          <TextField
+            label="Confirm Password"
+            type="password"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            sx={{ 
+              backgroundColor: 'white', 
+              borderRadius: '30px',
+              boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+              fontFamily: 'Inria Sans',
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                },
+              },
+            }}
+            InputLabelProps={{
+              style: { fontFamily: 'Inria Sans', color: 'rgba(0, 0, 0, 0.54)' },
+            }}
+            InputProps={{
+              style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
+            }}
+          />
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mt: 2 }}>  {/* Added box for checkboxes */}
+            <FormControlLabel
+              control={
+                <Checkbox 
+                  icon={<CheckBoxOutlineBlankIcon sx={{ color: 'white' }} />} 
+                  checkedIcon={<CheckBoxIcon sx={{ color: 'white' }} />}
+                  checked={newsletter} 
+                  onChange={(e) => setNewsletter(e.target.checked)} 
+                  name="newsletter"
+                  sx={{ '&.Mui-checked': { color: 'white' } }}
+                />
+              }
+              label={<Typography sx={{ fontFamily: 'Inria Sans', fontSize: '0.75rem', color: '#fff', textAlign: 'left' }}>I wish to receive the newsletter and other promotional emails.</Typography>}
+              sx={{ width: '100%' }}
+            />
+            <FormControlLabel
+              control={
+                <Checkbox 
+                  icon={<CheckBoxOutlineBlankIcon sx={{ color: 'white' }} />} 
+                  checkedIcon={<CheckBoxIcon sx={{ color: 'white' }} />}
+                  checked={terms} 
+                  onChange={(e) => setTerms(e.target.checked)} 
+                  name="terms"
+                  sx={{ '&.Mui-checked': { color: 'white' } }}
+                />
+              }
+              label={
+                <Typography sx={{ fontFamily: 'Inria Sans', fontSize: '0.75rem', color: '#fff' }}>
+                  I have read and agree to the <Link to="/terms" style={{ color: '#fff' }}>terms and conditions</Link>.
+                </Typography>
+              }
+            />
+          </Box>
+          {error && <Typography color="error" variant="body2" sx={{ mt: 1 }}>{error}</Typography>}
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Button 
+              variant="contained" 
+              sx={{ 
+                marginTop: 2, 
+                background: 'linear-gradient(to right, #8adbb1, #87ddc7)', 
+                color: '#fff', 
+                borderRadius: '25px', 
+                padding: '10px 30px', 
+                fontWeight: 'bold', 
+                fontSize: '1rem', // Adjusted font size
+                textTransform: 'uppercase',
+                width: 'auto',
+                minWidth: '150px',
+                maxWidth: '250px'
+              }} 
+              onClick={handleSignUp}
+            >
+              Sign in
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Box>
