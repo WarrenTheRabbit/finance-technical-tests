@@ -48,6 +48,13 @@ const SignUpPage = () => {
       return;
     }
 
+    // Check if the email is already registered
+    const existingUser = JSON.parse(localStorage.getItem('user'));
+    if (existingUser && existingUser.email === email) {
+      setError('Your email has been registered, please login');
+      return;
+    }
+
     const user = { firstName, lastName, email, password };
     localStorage.setItem('user', JSON.stringify(user));
 
@@ -275,7 +282,32 @@ const SignUpPage = () => {
               }
             />
           </Box>
-          {error && <Typography color="error" variant="body2" sx={{ mt: 1 }}>{error}</Typography>}
+          {error && (
+            <Box>
+              <Typography color="error" variant="body2" sx={{ mt: 1 }}>{error}</Typography>
+              {error.includes('registered') && (
+                <Button 
+                  variant="contained" 
+                  sx={{ 
+                    mt: 2, 
+                    background: 'linear-gradient(to right, #8adbb1, #87ddc7)', 
+                    color: '#fff', 
+                    borderRadius: '25px', 
+                    padding: '10px 30px', 
+                    fontWeight: 'bold', 
+                    fontSize: '1rem',
+                    textTransform: 'uppercase',
+                    width: 'auto',
+                    minWidth: '150px',
+                    maxWidth: '250px'
+                  }} 
+                  onClick={() => navigate('/login')}
+                >
+                  Go to Login
+                </Button>
+              )}
+            </Box>
+          )}
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <Button 
               variant="contained" 
