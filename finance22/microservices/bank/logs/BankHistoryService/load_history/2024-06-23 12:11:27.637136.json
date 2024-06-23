@@ -1,0 +1,67 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "OFFICEWORKS 0313, FERNTREE GLY",
+        "description": "Officeworks",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-29.00",
+                "valueInBaseUnits": -2900
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-29.00",
+            "valueInBaseUnits": -2900
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-22T02:04:01+10:00",
+        "createdAt": "2024-05-21T14:36:17+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/d1300c4c-fa97-44ea-b8c0-bc742f4cfee0/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/d1300c4c-fa97-44ea-b8c0-bc742f4cfee0/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/d1300c4c-fa97-44ea-b8c0-bc742f4cfee0"
+    },
+    "_id": "d1300c4c-fa97-44ea-b8c0-bc742f4cfee0",
+    "user": "Session ID",
+    "createdAt": "2024-05-21T14:36:17+10:00"
+}

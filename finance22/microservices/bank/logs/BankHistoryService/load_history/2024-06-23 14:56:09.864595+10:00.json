@@ -1,0 +1,57 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "WARREN MARKHAM",
+        "description": "WARREN MARKHAM",
+        "message": "wedding",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "40.00",
+            "valueInBaseUnits": 4000
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-05-07T11:38:05+10:00",
+        "createdAt": "2024-05-07T11:38:05+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/ab1d1df5-7251-4b92-a0a5-d5e4948ee59e/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/ab1d1df5-7251-4b92-a0a5-d5e4948ee59e/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/ab1d1df5-7251-4b92-a0a5-d5e4948ee59e"
+    },
+    "_id": "ab1d1df5-7251-4b92-a0a5-d5e4948ee59e",
+    "user": "Session ID",
+    "createdAt": "2024-05-07T11:38:05+10:00"
+}

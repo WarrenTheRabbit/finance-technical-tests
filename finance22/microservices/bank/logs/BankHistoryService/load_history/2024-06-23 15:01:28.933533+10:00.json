@@ -1,0 +1,57 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": null,
+        "description": "Miranda Gregory",
+        "message": "Mail redirect",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-40.00",
+            "valueInBaseUnits": -4000
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-05-28T11:23:12+10:00",
+        "createdAt": "2024-05-28T11:23:12+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/125e7361-3d2d-415c-a30f-e4f97e9ed9e1/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/125e7361-3d2d-415c-a30f-e4f97e9ed9e1/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/125e7361-3d2d-415c-a30f-e4f97e9ed9e1"
+    },
+    "_id": "125e7361-3d2d-415c-a30f-e4f97e9ed9e1",
+    "user": "Session ID",
+    "createdAt": "2024-05-28T11:23:12+10:00"
+}

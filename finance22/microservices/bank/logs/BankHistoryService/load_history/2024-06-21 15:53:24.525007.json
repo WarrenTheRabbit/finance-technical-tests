@@ -1,0 +1,56 @@
+{
+    "type": "transactions",
+    "id": "d36cc2ac-6cb5-4bec-804c-af0cf95c3eef",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "WARREN MARKHAM",
+        "description": "WARREN MARKHAM",
+        "message": "grooming",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "80.00",
+            "valueInBaseUnits": 8000
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-05-16T11:35:38+10:00",
+        "createdAt": "2024-05-16T11:35:38+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/d36cc2ac-6cb5-4bec-804c-af0cf95c3eef/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/d36cc2ac-6cb5-4bec-804c-af0cf95c3eef/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/d36cc2ac-6cb5-4bec-804c-af0cf95c3eef"
+    },
+    "_id": "d36cc2ac-6cb5-4bec-804c-af0cf95c3eef"
+}

@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "APOLLO FUEL SHO2,FERNTREE GULL",
+        "description": "Apollo Service Station",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-40.70",
+                "valueInBaseUnits": -4070
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-40.70",
+            "valueInBaseUnits": -4070
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-17T02:38:58+10:00",
+        "createdAt": "2024-05-15T11:36:29+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "car-insurance-and-maintenance"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/5bf27b88-de87-4a27-afa9-89b8ff97fc05/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/car-insurance-and-maintenance"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "transport"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/transport"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/5bf27b88-de87-4a27-afa9-89b8ff97fc05/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/5bf27b88-de87-4a27-afa9-89b8ff97fc05"
+    },
+    "_id": "5bf27b88-de87-4a27-afa9-89b8ff97fc05",
+    "user": "Session ID",
+    "createdAt": "2024-05-15T11:36:29+10:00"
+}

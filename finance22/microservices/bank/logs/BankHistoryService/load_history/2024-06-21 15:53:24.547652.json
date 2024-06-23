@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "c9af79fb-d0d9-42bb-a531-95b14a211acb",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "CHERRY GAYE FLOR,FERNTREE GULL",
+        "description": "Cherry Gay Florist",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-25.00",
+                "valueInBaseUnits": -2500
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-25.00",
+            "valueInBaseUnits": -2500
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-14T01:57:56+10:00",
+        "createdAt": "2024-05-12T10:46:28+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "gifts-and-charity"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/c9af79fb-d0d9-42bb-a531-95b14a211acb/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/gifts-and-charity"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "personal"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/personal"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/c9af79fb-d0d9-42bb-a531-95b14a211acb/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/c9af79fb-d0d9-42bb-a531-95b14a211acb"
+    },
+    "_id": "c9af79fb-d0d9-42bb-a531-95b14a211acb"
+}

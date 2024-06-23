@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "565440cb-db6a-4b56-adb6-cc13f80d4e0a",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "APOLLO FUEL SHO2,FERNTREE GULL",
+        "description": "Apollo Service Station",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-20.06",
+                "valueInBaseUnits": -2006
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-20.06",
+            "valueInBaseUnits": -2006
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-07T02:22:14+10:00",
+        "createdAt": "2024-05-05T11:46:36+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "car-insurance-and-maintenance"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/565440cb-db6a-4b56-adb6-cc13f80d4e0a/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/car-insurance-and-maintenance"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "transport"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/transport"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/565440cb-db6a-4b56-adb6-cc13f80d4e0a/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/565440cb-db6a-4b56-adb6-cc13f80d4e0a"
+    },
+    "_id": "565440cb-db6a-4b56-adb6-cc13f80d4e0a"
+}

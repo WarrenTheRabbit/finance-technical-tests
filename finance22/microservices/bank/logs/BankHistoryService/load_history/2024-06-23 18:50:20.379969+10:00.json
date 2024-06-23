@@ -1,0 +1,57 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": null,
+        "description": "Miranda Gregory",
+        "message": "Kent storage",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-300.00",
+            "valueInBaseUnits": -30000
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-05-14T10:29:43+10:00",
+        "createdAt": "2024-05-14T10:29:43+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/748af9ce-ba3a-4f0a-8ebe-1605bce88d1f/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/748af9ce-ba3a-4f0a-8ebe-1605bce88d1f/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/748af9ce-ba3a-4f0a-8ebe-1605bce88d1f"
+    },
+    "_id": "748af9ce-ba3a-4f0a-8ebe-1605bce88d1f",
+    "user": "Warren",
+    "createdAt": "2024-05-14T10:29:43+10:00"
+}

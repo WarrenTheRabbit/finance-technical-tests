@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "a460b6b7-bfdd-402a-b0b6-71314745c830",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "EACH, FERNTREE GULL",
+        "description": "EACH - Community Health Service",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-11.00",
+                "valueInBaseUnits": -1100
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-11.00",
+            "valueInBaseUnits": -1100
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-23T03:11:57+10:00",
+        "createdAt": "2024-05-22T10:57:28+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "health-and-medical"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/a460b6b7-bfdd-402a-b0b6-71314745c830/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/health-and-medical"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "personal"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/personal"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/a460b6b7-bfdd-402a-b0b6-71314745c830/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/a460b6b7-bfdd-402a-b0b6-71314745c830"
+    },
+    "_id": "a460b6b7-bfdd-402a-b0b6-71314745c830"
+}

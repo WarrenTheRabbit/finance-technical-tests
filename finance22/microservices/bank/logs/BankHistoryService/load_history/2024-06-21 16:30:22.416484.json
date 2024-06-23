@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "COLES EXPRESS 6774, BERWICK",
+        "description": "Coles Express",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-25.94",
+                "valueInBaseUnits": -2594
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-25.94",
+            "valueInBaseUnits": -2594
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-29T03:25:51+10:00",
+        "createdAt": "2024-05-28T15:47:17+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "fuel"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/6ccb34d0-4cdb-4e09-8dcf-e754738891de/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/fuel"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "transport"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/transport"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/6ccb34d0-4cdb-4e09-8dcf-e754738891de/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/6ccb34d0-4cdb-4e09-8dcf-e754738891de"
+    },
+    "_id": "6ccb34d0-4cdb-4e09-8dcf-e754738891de",
+    "createdAt": "2024-05-28T15:47:17+10:00"
+}

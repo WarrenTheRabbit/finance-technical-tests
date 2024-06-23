@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "VICROADS ONLINE PAYMEN, KEW",
+        "description": "VicRoads",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-179.60",
+                "valueInBaseUnits": -17960
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-179.60",
+            "valueInBaseUnits": -17960
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CARD_DETAILS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-06-05T03:58:59+10:00",
+        "createdAt": "2024-06-03T07:36:18+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "car-insurance-and-maintenance"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/852dbb31-65dd-43fb-aa01-fd558ffe4358/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/car-insurance-and-maintenance"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "transport"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/transport"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/852dbb31-65dd-43fb-aa01-fd558ffe4358/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/852dbb31-65dd-43fb-aa01-fd558ffe4358"
+    },
+    "_id": "852dbb31-65dd-43fb-aa01-fd558ffe4358",
+    "createdAt": "2024-06-03T07:36:18+10:00"
+}

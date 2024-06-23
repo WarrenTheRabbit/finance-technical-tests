@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "Boronia Junction Amca, Boronia",
+        "description": "Amcal Pharmacy",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-24.40",
+                "valueInBaseUnits": -2440
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-24.40",
+            "valueInBaseUnits": -2440
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-06T03:18:35+10:00",
+        "createdAt": "2024-05-05T15:32:35+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "health-and-medical"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/c7bbd279-f1de-44cb-95a1-19ff6b7876e5/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/health-and-medical"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "personal"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/personal"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/c7bbd279-f1de-44cb-95a1-19ff6b7876e5/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/c7bbd279-f1de-44cb-95a1-19ff6b7876e5"
+    },
+    "_id": "c7bbd279-f1de-44cb-95a1-19ff6b7876e5",
+    "user": "Warren",
+    "createdAt": "2024-05-05T15:32:35+10:00"
+}

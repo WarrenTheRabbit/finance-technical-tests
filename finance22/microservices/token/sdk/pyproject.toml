@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "token_client"
+version = "0.1.0"
+description = "SDK for Token microservice."
+authors = ["Warren <rabbitsinwarrens@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httplib2 = "^0.19.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

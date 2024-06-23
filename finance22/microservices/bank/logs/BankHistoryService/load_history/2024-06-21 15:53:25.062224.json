@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "1a8d122a-c1f4-4161-9985-d99e1a509f40",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "Woolworths Online, BELLA VISTA",
+        "description": "Woolworths",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-182.99",
+                "valueInBaseUnits": -18299
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-182.99",
+            "valueInBaseUnits": -18299
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "ECOMMERCE",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-13T01:58:24+10:00",
+        "createdAt": "2024-05-11T19:11:52+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "groceries"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/1a8d122a-c1f4-4161-9985-d99e1a509f40/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/groceries"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/1a8d122a-c1f4-4161-9985-d99e1a509f40/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/1a8d122a-c1f4-4161-9985-d99e1a509f40"
+    },
+    "_id": "1a8d122a-c1f4-4161-9985-d99e1a509f40"
+}

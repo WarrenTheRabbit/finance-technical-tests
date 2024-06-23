@@ -1,0 +1,57 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": null,
+        "description": "Miranda Gregory",
+        "message": "Woolworths",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-183.00",
+            "valueInBaseUnits": -18300
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-05-29T21:30:08+10:00",
+        "createdAt": "2024-05-29T21:30:08+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/7b19d558-98ee-438a-b6b5-6e1c7c99f8a5/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/7b19d558-98ee-438a-b6b5-6e1c7c99f8a5/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/7b19d558-98ee-438a-b6b5-6e1c7c99f8a5"
+    },
+    "_id": "7b19d558-98ee-438a-b6b5-6e1c7c99f8a5",
+    "user": "Warren",
+    "createdAt": "2024-05-29T21:30:08+10:00"
+}

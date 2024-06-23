@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "TWCM FERNTREE GU,FERNTREE GULL",
+        "description": "TerryWhite Chemmart",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-78.24",
+                "valueInBaseUnits": -7824
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-78.24",
+            "valueInBaseUnits": -7824
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-06-18T02:27:53+10:00",
+        "createdAt": "2024-06-17T11:20:20+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "health-and-medical"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/dd0703e3-28ae-499b-aaf5-c7888b56d814/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/health-and-medical"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "personal"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/personal"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/dd0703e3-28ae-499b-aaf5-c7888b56d814/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/dd0703e3-28ae-499b-aaf5-c7888b56d814"
+    },
+    "_id": "dd0703e3-28ae-499b-aaf5-c7888b56d814",
+    "user": "Session ID",
+    "createdAt": "2024-06-17T11:20:20+10:00"
+}

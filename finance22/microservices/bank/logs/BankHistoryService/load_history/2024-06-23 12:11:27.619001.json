@@ -1,0 +1,57 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": null,
+        "description": "Miranda Gregory",
+        "message": "Vietnamese",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-37.00",
+            "valueInBaseUnits": -3700
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-05-22T18:20:21+10:00",
+        "createdAt": "2024-05-22T18:20:21+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/f9046ef7-c6ad-41fc-bae2-a05805f4142b/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/f9046ef7-c6ad-41fc-bae2-a05805f4142b/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/f9046ef7-c6ad-41fc-bae2-a05805f4142b"
+    },
+    "_id": "f9046ef7-c6ad-41fc-bae2-a05805f4142b",
+    "user": "Session ID",
+    "createdAt": "2024-05-22T18:20:21+10:00"
+}

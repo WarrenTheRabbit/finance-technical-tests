@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "55d8ef6f-9baa-46b8-9643-4a9f8659f6fe",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "TW CM BORONIA, BORONIA",
+        "description": "TerryWhite Chemmart",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-33.98",
+                "valueInBaseUnits": -3398
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-33.98",
+            "valueInBaseUnits": -3398
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-06-06T02:18:26+10:00",
+        "createdAt": "2024-06-05T09:12:39+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "health-and-medical"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/55d8ef6f-9baa-46b8-9643-4a9f8659f6fe/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/health-and-medical"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "personal"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/personal"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/55d8ef6f-9baa-46b8-9643-4a9f8659f6fe/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/55d8ef6f-9baa-46b8-9643-4a9f8659f6fe"
+    },
+    "_id": "55d8ef6f-9baa-46b8-9643-4a9f8659f6fe"
+}

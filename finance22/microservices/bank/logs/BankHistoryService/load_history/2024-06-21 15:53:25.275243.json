@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "98318945-faf0-42c9-92e0-b725c776f9c6",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "Subway Boronia, Boronia",
+        "description": "Subway",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-23.70",
+                "valueInBaseUnits": -2370
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-23.70",
+            "valueInBaseUnits": -2370
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-08T01:19:56+10:00",
+        "createdAt": "2024-05-06T14:23:22+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "takeaway"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/98318945-faf0-42c9-92e0-b725c776f9c6/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/takeaway"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "good-life"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/good-life"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/98318945-faf0-42c9-92e0-b725c776f9c6/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/98318945-faf0-42c9-92e0-b725c776f9c6"
+    },
+    "_id": "98318945-faf0-42c9-92e0-b725c776f9c6"
+}

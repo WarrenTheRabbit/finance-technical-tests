@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "OLINDA PIZZA, OLINDA",
+        "description": "Olinda Pizza",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-34.00",
+                "valueInBaseUnits": -3400
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-34.00",
+            "valueInBaseUnits": -3400
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-08T01:19:56+10:00",
+        "createdAt": "2024-05-06T19:30:36+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "restaurants-and-cafes"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/f8d3175c-c945-4fbe-9fc6-682edc60974f/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/restaurants-and-cafes"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "good-life"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/good-life"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/f8d3175c-c945-4fbe-9fc6-682edc60974f/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/f8d3175c-c945-4fbe-9fc6-682edc60974f"
+    },
+    "_id": "f8d3175c-c945-4fbe-9fc6-682edc60974f",
+    "createdAt": "2024-05-06T19:30:36+10:00"
+}

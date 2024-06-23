@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "df16b88c-e5b5-4128-bca3-50254335f8af",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "ANRA AUSTRALIA PTY L, BORONIA",
+        "description": "AR Groceries",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-28.42",
+                "valueInBaseUnits": -2842
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-28.42",
+            "valueInBaseUnits": -2842
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-22T02:04:01+10:00",
+        "createdAt": "2024-05-20T13:12:24+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "groceries"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/df16b88c-e5b5-4128-bca3-50254335f8af/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/groceries"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/df16b88c-e5b5-4128-bca3-50254335f8af/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/df16b88c-e5b5-4128-bca3-50254335f8af"
+    },
+    "_id": "df16b88c-e5b5-4128-bca3-50254335f8af"
+}

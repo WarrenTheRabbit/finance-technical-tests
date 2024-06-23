@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "PETBARN, FERNTREE GULL",
+        "description": "Petbarn",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-22.99",
+                "valueInBaseUnits": -2299
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-22.99",
+            "valueInBaseUnits": -2299
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-08T01:19:56+10:00",
+        "createdAt": "2024-05-04T16:36:42+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "pets"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/1b1b8d86-6194-4923-b6e4-2c2b892d3b2a/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/pets"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/1b1b8d86-6194-4923-b6e4-2c2b892d3b2a/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/1b1b8d86-6194-4923-b6e4-2c2b892d3b2a"
+    },
+    "_id": "1b1b8d86-6194-4923-b6e4-2c2b892d3b2a",
+    "user": "Session ID",
+    "createdAt": "2024-05-04T16:36:42+10:00"
+}

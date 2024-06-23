@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "SUPER MUTTS, FERNTREE GULL",
+        "description": "Super Mutts dog grooming & supply",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-80.00",
+                "valueInBaseUnits": -8000
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-80.00",
+            "valueInBaseUnits": -8000
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-18T04:21:55+10:00",
+        "createdAt": "2024-05-16T11:35:56+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "pets"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/968a12aa-955d-47f8-80c7-f94826f5b85c/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/pets"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/968a12aa-955d-47f8-80c7-f94826f5b85c/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/968a12aa-955d-47f8-80c7-f94826f5b85c"
+    },
+    "_id": "968a12aa-955d-47f8-80c7-f94826f5b85c",
+    "createdAt": "2024-05-16T11:35:56+10:00"
+}

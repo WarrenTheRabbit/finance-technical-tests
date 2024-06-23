@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "ce0f16cc-6a74-4908-ad42-835498895f2d",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "PAYMATE*Internet ,F.Tree Gully",
+        "description": "INTERNET LAUNDROMAT",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-19.80",
+                "valueInBaseUnits": -1980
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-19.80",
+            "valueInBaseUnits": -1980
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-22T01:05:48+10:00",
+        "createdAt": "2024-05-20T15:50:58+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "life-admin"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/ce0f16cc-6a74-4908-ad42-835498895f2d/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/life-admin"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "personal"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/personal"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/ce0f16cc-6a74-4908-ad42-835498895f2d/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/ce0f16cc-6a74-4908-ad42-835498895f2d"
+    },
+    "_id": "ce0f16cc-6a74-4908-ad42-835498895f2d"
+}

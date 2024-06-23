@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "BUNNINGS GROUP L,HAWTHORN EAST",
+        "description": "Bunnings Warehouse",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-163.40",
+                "valueInBaseUnits": -16340
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-163.40",
+            "valueInBaseUnits": -16340
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "ECOMMERCE",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-11T02:45:50+10:00",
+        "createdAt": "2024-05-09T16:41:51+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "home-maintenance-and-improvements"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/5707437c-f399-4e43-a61a-7315bfc93573/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/home-maintenance-and-improvements"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/5707437c-f399-4e43-a61a-7315bfc93573/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/5707437c-f399-4e43-a61a-7315bfc93573"
+    },
+    "_id": "5707437c-f399-4e43-a61a-7315bfc93573",
+    "user": "Session ID",
+    "createdAt": "2024-05-09T16:41:51+10:00"
+}

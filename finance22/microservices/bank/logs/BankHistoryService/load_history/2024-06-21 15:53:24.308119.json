@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "5075aca3-5d91-4e23-9977-92bc63740674",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "Subway Westfield Don,Doncaster",
+        "description": "Subway",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-15.60",
+                "valueInBaseUnits": -1560
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-15.60",
+            "valueInBaseUnits": -1560
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-06-16T04:49:57+10:00",
+        "createdAt": "2024-06-14T16:50:21+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "takeaway"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/5075aca3-5d91-4e23-9977-92bc63740674/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/takeaway"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "good-life"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/good-life"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/5075aca3-5d91-4e23-9977-92bc63740674/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/5075aca3-5d91-4e23-9977-92bc63740674"
+    },
+    "_id": "5075aca3-5d91-4e23-9977-92bc63740674"
+}

@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "51eb50d5-cf75-45b5-9d73-f430549565dd",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "PETBARN, FERNTREE GULL",
+        "description": "Petbarn",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-69.66",
+                "valueInBaseUnits": -6966
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-69.66",
+            "valueInBaseUnits": -6966
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-30T01:56:25+10:00",
+        "createdAt": "2024-05-27T17:44:44+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "pets"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/51eb50d5-cf75-45b5-9d73-f430549565dd/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/pets"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/51eb50d5-cf75-45b5-9d73-f430549565dd/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/51eb50d5-cf75-45b5-9d73-f430549565dd"
+    },
+    "_id": "51eb50d5-cf75-45b5-9d73-f430549565dd"
+}
