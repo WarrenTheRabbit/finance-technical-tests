@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+// It has been disabled temporarily  
 const transactionsData = [
   { category: 'Good Life', date: '11/30/2023', amount: 60.00, description: '' },
   { category: 'Transport', date: '11/30/2023', amount: 40.00, description: '' },

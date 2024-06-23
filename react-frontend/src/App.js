@@ -109,8 +109,8 @@ const AppContent = () => {
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/processing" element={<ProcessingPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/transactions" element={<Transactions />} />
-          <Route path="/about" element={<About />} />
+          {/* <Route path="/transactions" element={<Transactions />} /> */}
+          {/* <Route path="/about" element={<About />} /> */}
           <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes to InstructionPage */}
         </Routes>
       </Box>

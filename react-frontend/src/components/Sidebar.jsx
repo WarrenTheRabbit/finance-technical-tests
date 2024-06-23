@@ -78,7 +78,7 @@ const Sidebar = ({ user, onButtonClick, activeButton }) => {
         </Box>
       </Box>
 
-      <Divider sx={{ width: '100%', marginTop: 2, marginBottom: 2 }} />
+      {/* <Divider sx={{ width: '100%', marginTop: 2, marginBottom: 2 }} />
 
       <List sx={{ width: '100%' }}>
         <ListItem button onClick={() => handleNavigation('dashboard')} selected={activeButton === 'dashboard'}>
@@ -92,10 +92,10 @@ const Sidebar = ({ user, onButtonClick, activeButton }) => {
         </ListItem>
       </List>
 
-      <Divider sx={{ width: '100%', marginTop: 2, marginBottom: 2 }} />
+      <Divider sx={{ width: '100%', marginTop: 2, marginBottom: 2 }} /> */}
 
       <List sx={{ width: '100%', marginTop: 'auto' }}>
-        <ListItem button>
+        <ListItem button onClick={() => handleNavigation('*')} selected={activeButton === '*'}>
           <ListItemText primary="Sign Out" />
         </ListItem>
       </List>

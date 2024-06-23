@@ -19,28 +19,9 @@ const InstructionPage = () => {
     navigate('/login');
   };
 
+
   return (
     <Box sx={{ padding: 2, bgcolor: '#eff4f7', position: 'relative' }}>
-      <Button
-        onClick={handleLogin}
-        sx={{
-          position: 'absolute',
-          top: 16,
-          right: 16,
-          fontFamily: 'Inter',
-          fontWeight: 'bold',
-          color: '#afbdc7',
-          textTransform: 'none',
-          background: 'none',
-          boxShadow: 'none',
-          '&:hover': {
-            background: 'none',
-            boxShadow: 'none'
-          }
-        }}
-      >
-        Log In
-      </Button>
       <Box sx={{ maxWidth: 800, width: '100%', textAlign: 'center', margin: '0 auto', pt: 4, position: 'relative' }}>
         <Box 
           component="img"
@@ -357,15 +338,24 @@ const InstructionPage = () => {
             lineHeight: 1.5
           }}
         >
-          Hit that "Register" button below to get started. We're excited to help you achieve your financial goals!
+          Hit that 'Register' button below to get started or 'Log In' if you already have an account. We're excited to help you achieve your financial goals!
         </Typography>
       </Box>
-      <Box sx={{ textAlign: 'center' }}>
+      <Box sx={{ 
+        textAlign: 'center' }}>
         <Button 
           className="register-button"
           onClick={handleRegister}
+          sx={{ marginRight: 3 }}
         >
           Register
+        </Button>
+
+        <Button
+          className='register-button'
+          onClick={handleLogin}
+        >
+          Log In
         </Button>
       </Box>
       <Box sx={{ width: '100vw', bgcolor: '#cad6ea', color: '#000000', padding: 2, mt: 4, textAlign: 'center', position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw', marginBottom: '-25vw' }}>
