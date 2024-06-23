@@ -1,0 +1,66 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "KMART 1016, BORONIA",
+        "description": "Kmart",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-19.50",
+                "valueInBaseUnits": -1950
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-19.50",
+            "valueInBaseUnits": -1950
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-13T01:58:24+10:00",
+        "createdAt": "2024-05-12T10:29:34+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/a2b5bd17-5536-4ac6-ae5d-d25618c31c30/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/a2b5bd17-5536-4ac6-ae5d-d25618c31c30/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/a2b5bd17-5536-4ac6-ae5d-d25618c31c30"
+    },
+    "_id": "a2b5bd17-5536-4ac6-ae5d-d25618c31c30",
+    "createdAt": "2024-05-12T10:29:34+10:00"
+}

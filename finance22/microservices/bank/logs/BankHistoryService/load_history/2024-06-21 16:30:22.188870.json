@@ -1,0 +1,66 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "Knox Leisurework    0319349952",
+        "description": "Knox Leisureworks",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-14.95",
+            "valueInBaseUnits": -1495
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-06-10T20:08:46+10:00",
+        "createdAt": "2024-06-10T20:08:46+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "fitness-and-wellbeing"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/1ce4035c-c633-4bf2-827c-a434b0462215/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/fitness-and-wellbeing"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "personal"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/personal"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/1ce4035c-c633-4bf2-827c-a434b0462215/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/1ce4035c-c633-4bf2-827c-a434b0462215"
+    },
+    "_id": "1ce4035c-c633-4bf2-827c-a434b0462215",
+    "createdAt": "2024-06-10T20:08:46+10:00"
+}

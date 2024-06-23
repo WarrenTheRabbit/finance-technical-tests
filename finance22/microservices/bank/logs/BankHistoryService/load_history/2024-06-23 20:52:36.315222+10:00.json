@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "APOLLO FUEL SHO2,FERNTREE GULL",
+        "description": "Apollo Service Station",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-79.61",
+                "valueInBaseUnits": -7961
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-79.61",
+            "valueInBaseUnits": -7961
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-06-14T04:16:05+10:00",
+        "createdAt": "2024-06-12T11:45:42+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "car-insurance-and-maintenance"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/c6fa473f-4b1e-486c-9ca0-75a23766f4a8/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/car-insurance-and-maintenance"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "transport"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/transport"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/c6fa473f-4b1e-486c-9ca0-75a23766f4a8/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/c6fa473f-4b1e-486c-9ca0-75a23766f4a8"
+    },
+    "_id": "c6fa473f-4b1e-486c-9ca0-75a23766f4a8",
+    "user": "Warren",
+    "createdAt": "2024-06-12T11:45:42+10:00"
+}

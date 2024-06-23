@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "Knox Leisureworks, Boronia",
+        "description": "Knox Leisureworks",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-99.80",
+                "valueInBaseUnits": -9980
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-99.80",
+            "valueInBaseUnits": -9980
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-20T02:58:45+10:00",
+        "createdAt": "2024-05-19T08:13:05+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "fitness-and-wellbeing"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/a94a55b3-212d-4d18-a740-0c929d7406d4/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/fitness-and-wellbeing"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "personal"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/personal"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/a94a55b3-212d-4d18-a740-0c929d7406d4/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/a94a55b3-212d-4d18-a740-0c929d7406d4"
+    },
+    "_id": "a94a55b3-212d-4d18-a740-0c929d7406d4",
+    "createdAt": "2024-05-19T08:13:05+10:00"
+}

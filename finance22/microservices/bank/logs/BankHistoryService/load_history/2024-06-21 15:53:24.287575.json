@@ -1,0 +1,56 @@
+{
+    "type": "transactions",
+    "id": "350a6366-afc1-4c5a-ac8e-b9f8b7819e19",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "WARREN MARKHAM",
+        "description": "WARREN MARKHAM",
+        "message": "hospotal prep",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "20.00",
+            "valueInBaseUnits": 2000
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-06-17T11:44:39+10:00",
+        "createdAt": "2024-06-17T11:44:39+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/350a6366-afc1-4c5a-ac8e-b9f8b7819e19/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/350a6366-afc1-4c5a-ac8e-b9f8b7819e19/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/350a6366-afc1-4c5a-ac8e-b9f8b7819e19"
+    },
+    "_id": "350a6366-afc1-4c5a-ac8e-b9f8b7819e19"
+}

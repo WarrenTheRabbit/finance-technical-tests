@@ -1,0 +1,56 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "WARREN MARKHAM",
+        "description": "WARREN MARKHAM",
+        "message": "medicine",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "30.00",
+            "valueInBaseUnits": 3000
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-05-05T15:30:35+10:00",
+        "createdAt": "2024-05-05T15:30:35+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/389cc3e5-d64b-4c2e-85dd-de5f6ea6b00c/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/389cc3e5-d64b-4c2e-85dd-de5f6ea6b00c/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/389cc3e5-d64b-4c2e-85dd-de5f6ea6b00c"
+    },
+    "_id": "389cc3e5-d64b-4c2e-85dd-de5f6ea6b00c",
+    "createdAt": "2024-05-05T15:30:35+10:00"
+}

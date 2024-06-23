@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "LINKT MELBOURNE, MELBOURNE",
+        "description": "Linkt",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-42.61",
+                "valueInBaseUnits": -4261
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-42.61",
+            "valueInBaseUnits": -4261
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "ECOMMERCE",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-08T01:19:56+10:00",
+        "createdAt": "2024-05-06T10:06:56+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "toll-roads"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/137433de-aee1-4d2f-a1a7-3758a5846482/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/toll-roads"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "transport"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/transport"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/137433de-aee1-4d2f-a1a7-3758a5846482/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/137433de-aee1-4d2f-a1a7-3758a5846482"
+    },
+    "_id": "137433de-aee1-4d2f-a1a7-3758a5846482",
+    "user": "Warren",
+    "createdAt": "2024-05-06T10:06:56+10:00"
+}

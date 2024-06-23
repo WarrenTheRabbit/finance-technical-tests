@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "Burvale Heights Ve,Forest Hill",
+        "description": "Burvale Heights Vet Hospital",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-81.00",
+                "valueInBaseUnits": -8100
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-81.00",
+            "valueInBaseUnits": -8100
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-11T02:45:50+10:00",
+        "createdAt": "2024-05-10T11:51:37+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "pets"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/f5159c39-5a32-497c-8b98-a8f66f9e1cdc/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/pets"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/f5159c39-5a32-497c-8b98-a8f66f9e1cdc/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/f5159c39-5a32-497c-8b98-a8f66f9e1cdc"
+    },
+    "_id": "f5159c39-5a32-497c-8b98-a8f66f9e1cdc",
+    "createdAt": "2024-05-10T11:51:37+10:00"
+}

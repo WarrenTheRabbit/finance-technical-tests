@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "SQ *WHOLEFOOD M1,Ferntree Gull",
+        "description": "Wholefood Merchants",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-76.30",
+                "valueInBaseUnits": -7630
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-76.30",
+            "valueInBaseUnits": -7630
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-06-12T04:18:40+10:00",
+        "createdAt": "2024-06-11T13:14:06+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "groceries"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/e23de4e5-cafb-4a20-a0e6-e8b4d7ea71ea/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/groceries"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/e23de4e5-cafb-4a20-a0e6-e8b4d7ea71ea/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/e23de4e5-cafb-4a20-a0e6-e8b4d7ea71ea"
+    },
+    "_id": "e23de4e5-cafb-4a20-a0e6-e8b4d7ea71ea",
+    "user": "Session ID",
+    "createdAt": "2024-06-11T13:14:06+10:00"
+}

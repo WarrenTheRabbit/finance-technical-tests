@@ -1,0 +1,56 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "WARREN MARKHAM",
+        "description": "WARREN MARKHAM",
+        "message": "fuel",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "8.00",
+            "valueInBaseUnits": 800
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-06-12T11:45:14+10:00",
+        "createdAt": "2024-06-12T11:45:14+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/856065dd-73eb-4492-95e5-4a0a35fd9a0e/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/856065dd-73eb-4492-95e5-4a0a35fd9a0e/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/856065dd-73eb-4492-95e5-4a0a35fd9a0e"
+    },
+    "_id": "856065dd-73eb-4492-95e5-4a0a35fd9a0e",
+    "createdAt": "2024-06-12T11:45:14+10:00"
+}

@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "COLES 0601, BORONIA",
+        "description": "Coles",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-27.25",
+                "valueInBaseUnits": -2725
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-27.25",
+            "valueInBaseUnits": -2725
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-06-04T02:23:26+10:00",
+        "createdAt": "2024-06-03T10:07:14+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "groceries"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/9b269e18-7735-4575-907b-f64bbc7ee234/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/groceries"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/9b269e18-7735-4575-907b-f64bbc7ee234/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/9b269e18-7735-4575-907b-f64bbc7ee234"
+    },
+    "_id": "9b269e18-7735-4575-907b-f64bbc7ee234",
+    "createdAt": "2024-06-03T10:07:14+10:00"
+}

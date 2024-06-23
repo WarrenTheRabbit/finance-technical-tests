@@ -1,0 +1,70 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "AAMI",
+        "description": "AAMI",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-58.63",
+            "valueInBaseUnits": -5863
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CARD_DETAILS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-06-11T12:43:00+10:00",
+        "createdAt": "2024-06-11T12:43:00+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "car-insurance-and-maintenance"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/0449ad33-41fb-4f13-a04e-8575b92ddfb3/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/car-insurance-and-maintenance"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "transport"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/transport"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/0449ad33-41fb-4f13-a04e-8575b92ddfb3/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/0449ad33-41fb-4f13-a04e-8575b92ddfb3"
+    },
+    "_id": "0449ad33-41fb-4f13-a04e-8575b92ddfb3",
+    "user": "Warren",
+    "createdAt": "2024-06-11T12:43:00+10:00"
+}

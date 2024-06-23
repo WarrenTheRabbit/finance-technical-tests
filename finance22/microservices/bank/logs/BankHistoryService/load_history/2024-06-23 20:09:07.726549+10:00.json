@@ -1,0 +1,57 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": null,
+        "description": "Direct Debit Dishonour",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "14.40",
+            "valueInBaseUnits": 1440
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-06-18T11:59:36+10:00",
+        "createdAt": "2024-06-18T11:59:36+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/a7796a57-4526-45be-86c1-3191335e7b32/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/a7796a57-4526-45be-86c1-3191335e7b32/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/a7796a57-4526-45be-86c1-3191335e7b32"
+    },
+    "_id": "a7796a57-4526-45be-86c1-3191335e7b32",
+    "user": "Warren",
+    "createdAt": "2024-06-18T11:59:36+10:00"
+}

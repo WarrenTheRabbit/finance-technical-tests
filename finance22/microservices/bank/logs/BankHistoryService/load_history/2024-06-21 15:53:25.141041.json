@@ -1,0 +1,66 @@
+{
+    "type": "transactions",
+    "id": "f5bff15c-6bb4-4278-bc2e-9925625bed27",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "OFFICEWORKS 0313, FERNTREE GLY",
+        "description": "Officeworks",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-64.33",
+                "valueInBaseUnits": -6433
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-64.33",
+            "valueInBaseUnits": -6433
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-10T02:25:24+10:00",
+        "createdAt": "2024-05-09T12:36:03+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/f5bff15c-6bb4-4278-bc2e-9925625bed27/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/f5bff15c-6bb4-4278-bc2e-9925625bed27/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/f5bff15c-6bb4-4278-bc2e-9925625bed27"
+    },
+    "_id": "f5bff15c-6bb4-4278-bc2e-9925625bed27"
+}

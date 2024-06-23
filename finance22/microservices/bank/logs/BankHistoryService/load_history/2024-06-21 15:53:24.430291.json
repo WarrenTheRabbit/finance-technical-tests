@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "d5ccae62-ee77-4455-bd94-3178b8cb28e9",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "WOOLWORTHS 31431, FERNTREE GLY",
+        "description": "Woolworths",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-5.90",
+                "valueInBaseUnits": -590
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-5.90",
+            "valueInBaseUnits": -590
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-30T01:56:25+10:00",
+        "createdAt": "2024-05-29T19:23:45+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "groceries"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/d5ccae62-ee77-4455-bd94-3178b8cb28e9/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/groceries"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/d5ccae62-ee77-4455-bd94-3178b8cb28e9/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/d5ccae62-ee77-4455-bd94-3178b8cb28e9"
+    },
+    "_id": "d5ccae62-ee77-4455-bd94-3178b8cb28e9"
+}

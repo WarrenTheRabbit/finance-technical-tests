@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "WOOLWORTHS 3108, BORONIA",
+        "description": "Woolworths",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-35.65",
+                "valueInBaseUnits": -3565
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-35.65",
+            "valueInBaseUnits": -3565
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-23T03:11:56+10:00",
+        "createdAt": "2024-05-22T14:32:21+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "groceries"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/680698cb-1b82-4df2-9531-3b3c960c6973/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/groceries"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/680698cb-1b82-4df2-9531-3b3c960c6973/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/680698cb-1b82-4df2-9531-3b3c960c6973"
+    },
+    "_id": "680698cb-1b82-4df2-9531-3b3c960c6973",
+    "user": "Warren",
+    "createdAt": "2024-05-22T14:32:21+10:00"
+}

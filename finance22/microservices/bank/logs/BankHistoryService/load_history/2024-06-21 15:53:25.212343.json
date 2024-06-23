@@ -1,0 +1,76 @@
+{
+    "type": "transactions",
+    "id": "7a04a191-6370-4c50-93da-57d8527cc9b3",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "BEL-AIRE DRY CLEANERS, BORONIA",
+        "description": "Bel-Aire Dry Cleaners",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-40.80",
+                "valueInBaseUnits": -4080
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-40.80",
+            "valueInBaseUnits": -4080
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-09T01:57:46+10:00",
+        "createdAt": "2024-05-07T10:56:40+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "clothing-and-accessories"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/7a04a191-6370-4c50-93da-57d8527cc9b3/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/clothing-and-accessories"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "personal"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/personal"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/7a04a191-6370-4c50-93da-57d8527cc9b3/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/7a04a191-6370-4c50-93da-57d8527cc9b3"
+    },
+    "_id": "7a04a191-6370-4c50-93da-57d8527cc9b3"
+}

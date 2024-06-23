@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "INDIAN ROGAN JOS,UPPER FERNTRE",
+        "description": "Indian Rogan Josh",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-15.69",
+                "valueInBaseUnits": -1569
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-15.69",
+            "valueInBaseUnits": -1569
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-05-23T01:08:09+10:00",
+        "createdAt": "2024-05-21T18:39:43+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "restaurants-and-cafes"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/6734d01a-405f-4b05-bed5-84a8e5c5d2bb/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/restaurants-and-cafes"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "good-life"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/good-life"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/6734d01a-405f-4b05-bed5-84a8e5c5d2bb/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/6734d01a-405f-4b05-bed5-84a8e5c5d2bb"
+    },
+    "_id": "6734d01a-405f-4b05-bed5-84a8e5c5d2bb",
+    "user": "Warren",
+    "createdAt": "2024-05-21T18:39:43+10:00"
+}

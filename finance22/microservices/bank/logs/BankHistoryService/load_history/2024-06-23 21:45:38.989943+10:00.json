@@ -1,0 +1,57 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "WARREN MARKHAM",
+        "description": "WARREN MARKHAM",
+        "message": "jobseeker",
+        "isCategorizable": true,
+        "holdInfo": null,
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "779.00",
+            "valueInBaseUnits": 77900
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": null,
+        "settledAt": "2024-05-09T12:32:29+10:00",
+        "createdAt": "2024-05-09T12:32:29+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": null,
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/439a85c6-fdf4-4b41-9985-f98e37e88e2c/relationships/category"
+            }
+        },
+        "parentCategory": {
+            "data": null
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/439a85c6-fdf4-4b41-9985-f98e37e88e2c/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/439a85c6-fdf4-4b41-9985-f98e37e88e2c"
+    },
+    "_id": "439a85c6-fdf4-4b41-9985-f98e37e88e2c",
+    "user": "Warren",
+    "createdAt": "2024-05-09T12:32:29+10:00"
+}

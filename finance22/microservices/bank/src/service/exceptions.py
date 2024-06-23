@@ -1,0 +1,2 @@
+class TransactionDocumentAlreadyLoadedIntoBankHistory(Exception):
+    pass

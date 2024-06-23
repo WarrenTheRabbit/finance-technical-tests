@@ -1,0 +1,77 @@
+{
+    "type": "transactions",
+    "attributes": {
+        "status": "SETTLED",
+        "rawText": "MCDONALDS COLLING1,COLLINGWOOD",
+        "description": "McDonald's",
+        "message": null,
+        "isCategorizable": true,
+        "holdInfo": {
+            "amount": {
+                "currencyCode": "AUD",
+                "value": "-7.00",
+                "valueInBaseUnits": -700
+            },
+            "foreignAmount": null
+        },
+        "roundUp": null,
+        "cashback": null,
+        "amount": {
+            "currencyCode": "AUD",
+            "value": "-7.00",
+            "valueInBaseUnits": -700
+        },
+        "foreignAmount": null,
+        "cardPurchaseMethod": {
+            "method": "CONTACTLESS",
+            "cardNumberSuffix": "2086"
+        },
+        "settledAt": "2024-06-01T12:58:18+10:00",
+        "createdAt": "2024-05-29T15:15:00+10:00"
+    },
+    "relationships": {
+        "account": {
+            "data": {
+                "type": "accounts",
+                "id": "2de2a86f-236a-4826-980e-12469fc67894"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/accounts/2de2a86f-236a-4826-980e-12469fc67894"
+            }
+        },
+        "transferAccount": {
+            "data": null
+        },
+        "category": {
+            "data": {
+                "type": "categories",
+                "id": "takeaway"
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/22ecb3f3-ac5f-49f2-8613-e5e1d3b07f48/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/takeaway"
+            }
+        },
+        "parentCategory": {
+            "data": {
+                "type": "categories",
+                "id": "good-life"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/good-life"
+            }
+        },
+        "tags": {
+            "data": [],
+            "links": {
+                "self": "https://api.up.com.au/api/v1/transactions/22ecb3f3-ac5f-49f2-8613-e5e1d3b07f48/relationships/tags"
+            }
+        }
+    },
+    "links": {
+        "self": "https://api.up.com.au/api/v1/transactions/22ecb3f3-ac5f-49f2-8613-e5e1d3b07f48"
+    },
+    "_id": "22ecb3f3-ac5f-49f2-8613-e5e1d3b07f48",
+    "user": "Warren",
+    "createdAt": "2024-05-29T15:15:00+10:00"
+}
