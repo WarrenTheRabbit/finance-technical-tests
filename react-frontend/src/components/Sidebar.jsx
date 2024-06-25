@@ -122,8 +122,7 @@ const Sidebar = ({ user, onButtonClick, activeButton }) => {
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
-          display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 120 },
+          display: { xs: 'block', md: 'none' }
         }}
       >
         {drawer}

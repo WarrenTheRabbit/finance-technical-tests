@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, TextField, Button, Checkbox, FormControlLabel } from '@mui/material';
 import { useNavigate, Link } from 'react-router-dom';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import logo from '../assets/images/logo.svg';
+import useSWR from 'swr';
+import { fetcher } from '../utils';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -16,6 +18,7 @@ const SignUpPage = () => {
   const [terms, setTerms] = useState(false);
   const [error, setError] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [shouldFetch, setShouldFetch] = useState(false);
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -34,6 +37,23 @@ const SignUpPage = () => {
     }
   };
 
+  const { data: userData, error: signUpError, isValidating: isSigningUp } = useSWR(
+    shouldFetch
+      ? {
+          url: 'http://localhost:8000/v1/user',
+          method: 'POST',
+          body: { firstName, lastName, email, password },
+        }
+      : null,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      refreshInterval: 0,
+      shouldRetryOnError: false,
+    }
+  );
+
   const handleSignUp = () => {
     if (!firstName || !lastName || !email || !password || !confirmPassword) {
       setError('Please fill in all fields');
@@ -48,18 +68,26 @@ const SignUpPage = () => {
       return;
     }
 
-    // Check if the email is already registered
-    const existingUser = JSON.parse(localStorage.getItem('user'));
-    if (existingUser && existingUser.email === email) {
-      setError('Your email has been registered, please login');
+   setError("")
+   setShouldFetch(true);
+  };
+
+  useEffect(() => {
+    if (isSigningUp){
+      setError('')
+    }
+
+    if (!isSigningUp && !!signUpError) {
+      setShouldFetch(false)
+      setError(signUpError);
       return;
     }
 
-    const user = { firstName, lastName, email, password };
-    localStorage.setItem('user', JSON.stringify(user));
-
-    navigate('/login', { state: { registered: true } });
-  };
+    if (!isSigningUp && !!userData) {
+      setShouldFetch(false) 
+      navigate('/login', { state: { registered: true } });
+    }
+  }, [userData, isSigningUp, signUpError, navigate])
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', bgcolor: '#eff4f7' }}>

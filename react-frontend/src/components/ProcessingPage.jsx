@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import WelcomeImage from '../assets/images/stuck-at-home-imagination.svg'
 
 const ProcessingPage = () => {
-  const navigate = useNavigate();
   const [displayText, setDisplayText] = useState('Creating graphs ...');
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate('/dashboard');
-    }, 15000);
-
-    return () => clearTimeout(timer);
-  }, [navigate]);
 
   useEffect(() => {
     const switchTextTimer = setInterval(() => {

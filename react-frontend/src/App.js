@@ -36,19 +36,28 @@ const fakeExpenseData = [
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 const Dashboard = () => {
-  const { data: expenseData, error, isValidating } = useSWR('http://localhost:8000/v1/expenses', fetcher, {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-    refreshInterval: 100000000,
-    shouldRetryOnError: false
-  });
-
-  if (isValidating) return "";
-
+  const [shouldFetch, setShouldFetch] = useState(true)
+  
+  const { data: expenseData, error, isValidating } = useSWR(
+    shouldFetch ? 'http://localhost:8000/v1/expenses' : null,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      refreshInterval: 0,
+      shouldRetryOnError: false,
+    }
+  );
+ 
   const handleRefresh = () => {
-    mutate('http://localhost:8000/v1/expenses');
+    setShouldFetch(true); // Set shouldFetch to true to trigger refetch
+    mutate('http://localhost:8000/v1/expenses'); // Manually trigger mutate to refetch
   };
 
+  if (isValidating) {
+    return <ProcessingPage />
+  };
+  
   return (
     <Box sx={{ padding: '20px', bgcolor: '#eff4f7', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Typography variant="h5" gutterBottom sx={{ fontFamily: 'Inter', fontSize: 15, fontWeight: 'bold', color: '#afbdc7', marginTop: '50px' }}>
@@ -151,7 +160,7 @@ const AppContent = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/pat" element={<PATPage />} />
           <Route path="/terms" element={<TermsAndConditions />} />
-          <Route path="/processing" element={<ProcessingPage />} />
+          {/* <Route path="/processing" element={<ProcessingPage />} /> */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/details" element={<Details />} />
           <Route path="/profile" element={<Profile />} />
