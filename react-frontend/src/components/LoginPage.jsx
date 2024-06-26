@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import axios from 'axios';
 import logo from '../assets/images/logo.svg';
-import { fetcher } from '../utils';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -14,18 +14,17 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const user = await fetcher({
-        url: 'http://localhost:8000/v1/user',
-        method: 'GET',
-        headers: {
-          'Authorization': `Basic ${btoa(`${email}:${password}`)}`,
-        },
+      const response = await axios.get('http://localhost:8000/v1/user', {
+        auth: {
+          username: email,
+          password: password
+        }
       });
-
+      const user = response.data;
       localStorage.setItem('user', JSON.stringify(user));
       navigate('/pat');
     } catch (err) {
-      setError(err.message);
+      setError(err.response ? err.response.data.detail : 'Login failed');
     }
   };
 

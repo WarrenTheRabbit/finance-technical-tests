@@ -62,8 +62,10 @@ const Sidebar = ({ user, onButtonClick, activeButton }) => {
       }}
     >
       <Box sx={{ padding: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <Avatar alt={user.name} src={user.avatar} sx={{ width: 50, height: 50, marginTop: 2, marginBottom: 1 }} />
-        <Typography variant="body1" sx={{ fontFamily: 'Inria Sans', fontWeight: 'bold', textAlign: 'center' }}>{user.name}</Typography>
+        <Avatar alt={`${user.firstName} ${user.lastName}`} src={user.avatar} sx={{ width: 50, height: 50, marginTop: 2, marginBottom: 1 }} />
+        <Typography variant="body1" sx={{ fontFamily: 'Inria Sans', fontWeight: 'bold', textAlign: 'center' }}>
+          {`${user.firstName} ${user.lastName}`}
+        </Typography>
         <Divider sx={{ width: '80%', marginTop: 1, marginBottom: 1 }} />
       </Box>
 

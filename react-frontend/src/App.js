@@ -1,5 +1,5 @@
 import useSWR, { mutate } from 'swr';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { Box, CssBaseline, Grid, Typography, Button, Link } from '@mui/material';
 import Sidebar from './components/Sidebar';
@@ -18,28 +18,17 @@ import ExpenseDonutChart from './components/ExpenseDonutChart';
 import ExpenseTable from './components/ExpenseTable';
 import FacebookLogo from './assets/images/facebook-logo.svg';
 import InstagramLogo from './assets/images/instagram-logo.svg';
+import axios from 'axios';
 
-// Mock data
-const user = {
-  name: 'John Doe',
-  avatar: 'https://via.placeholder.com/100',
-  balance: 3000.00,
-};
-
-const fakeExpenseData = [
-  { category: 'Good Life', amount: 500, percentage: 25 },
-  { category: 'Home', amount: 1000, percentage: 50 },
-  { category: 'Personal', amount: 300, percentage: 15 },
-  { category: 'Transport', amount: 200, percentage: 10 },
-];
-
+// Fetcher function for SWR
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 const Dashboard = () => {
-  const [shouldFetch, setShouldFetch] = useState(true)
-  
+  const [shouldFetch, setShouldFetch] = useState(true);
+  const user = JSON.parse(localStorage.getItem('user')) || { email: '' };
+
   const { data: expenseData, error, isValidating } = useSWR(
-    shouldFetch ? 'http://localhost:8000/v1/expenses' : null,
+    shouldFetch ? `http://localhost:8000/v1/expenses?email=${user.email}` : null,
     fetcher,
     {
       revalidateOnFocus: false,
@@ -48,31 +37,32 @@ const Dashboard = () => {
       shouldRetryOnError: false,
     }
   );
- 
+
   const handleRefresh = () => {
     setShouldFetch(true); // Set shouldFetch to true to trigger refetch
-    mutate('http://localhost:8000/v1/expenses'); // Manually trigger mutate to refetch
+    mutate(`http://localhost:8000/v1/expenses?email=${user.email}`); // Manually trigger mutate to refetch
   };
 
   if (isValidating) {
-    return <ProcessingPage />
-  };
+    return <ProcessingPage />;
+  }
+
   
   return (
     <Box sx={{ padding: '20px', bgcolor: '#eff4f7', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Typography variant="h5" gutterBottom sx={{ fontFamily: 'Inter', fontSize: 15, fontWeight: 'bold', color: '#afbdc7', marginTop: '50px' }}>
         Dashboard
       </Typography>
-      <Box sx={{ flexGrow: 1, padding: '20px', marginTop: '5px', bgcolor: "#fff", borderRadius: "16px", maxWidth: '90%', marginLeft: 'auto', marginRight: 'auto' }}>
+      <Box sx={{ flexGrow: 1, padding: '20px', marginTop: '5px', bgcolor: "#fff", borderRadius: "16px", maxWidth: '100%', marginLeft: 'auto', marginRight: 'auto' }}>
         <Typography variant="h6" gutterBottom sx={{ fontFamily: 'Inter', fontWeight: 'bold', color: '#808080', fontSize: '14px' }}>
           Total Expenses
         </Typography>
         <Grid container spacing={2} justifyContent={"center"} alignItems={"center"}>
           <Grid item xs={12} md={6}>
-            <ExpenseDonutChart data={expenseData || fakeExpenseData} />
+            <ExpenseDonutChart data={expenseData || []} />
           </Grid>
           <Grid item xs={12} md={6}>
-            <ExpenseTable data={expenseData || fakeExpenseData} />
+            <ExpenseTable data={expenseData || []} />
           </Grid>
         </Grid>
       </Box>
@@ -140,7 +130,14 @@ const Dashboard = () => {
 const AppContent = () => {
   const location = useLocation();
   const [activeButton, setActiveButton] = useState('dashboard');
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || { firstName: '', lastName: '', avatar: '' });
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
 
   const handleButtonClick = (button) => {
     setActiveButton(button);
@@ -150,7 +147,7 @@ const AppContent = () => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#f5f5f5', minHeight: '100vh' }}>
-      {isLoggedIn && showSidebar && (
+      {showSidebar && (
         <Sidebar user={user} onButtonClick={handleButtonClick} activeButton={activeButton} />
       )}
       <Box sx={{ flexGrow: 1, minHeight: '100vh' }}>
