@@ -13,7 +13,7 @@ load_dotenv()
 
 class UnitOfWork:
     def __init__(self, database, collection):
-        self.client = MongoClient("mongodb://localhost:27017/")
+        self.client = MongoClient("mongodb://mongo:27017/")
         self.database = self.client[database]
         self.collection = self.database[collection]
 

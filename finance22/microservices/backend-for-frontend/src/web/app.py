@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from bank_client import BankClient
 # from expenses_client import ExpensesClient
 
 #TODO: Create a JS SDK for each endpoint.
