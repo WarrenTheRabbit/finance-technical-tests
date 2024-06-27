@@ -6,4 +6,4 @@ COPY migrations /app/migrations
 RUN pip install --no-cache-dir -r requirements.txt
 ENV PYTHONPATH=/app
 RUN alembic upgrade head
-CMD [ "uvicorn", "src.web.app:app", "--host", "0.0.0.0"]
+CMD [ "uvicorn", "src.entrypoint.fastapi_server.app:app", "--host", "0.0.0.0"]

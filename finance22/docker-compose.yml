@@ -1,0 +1,35 @@
+services:
+  backend-for-frontend:
+    build: microservices/backend-for-frontend
+    ports:
+      - "8000:8000"
+  bank:
+    build: microservices/bank
+    ports:
+      - "8001:8000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/  
+    depends_on:
+      - mongodb
+  expense:
+    build: microservices/expense
+    ports:
+      - "8002:8000"
+    environment:
+      DB_URL: sqlite:///expense.db
+  token:
+    build: microservices/token
+    ports:
+      - "8003:8000"
+    environment:
+      DB_URL: sqlite:///pat.db
+  transaction:
+    build: microservices/transaction
+    ports:
+      - "8004:8000"
+    environment:
+      DB_URL: sqlite:///transactions.db
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
