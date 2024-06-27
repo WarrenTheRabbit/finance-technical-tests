@@ -3,6 +3,10 @@ services:
     build: microservices/backend-for-frontend
     ports:
       - "8000:8000"
+    volumes:
+      - type: bind
+        source: microservices/backend-for-frontend/src
+        target: /app/src
   bank:
     build: microservices/bank
     ports:
@@ -17,6 +21,14 @@ services:
       - "8002:8000"
     environment:
       DB_URL: sqlite:///expense.db
+  react:
+    build: microservices/react-frontend
+    ports: 
+      - 3000:3000
+    volumes:
+      - type: bind
+        source: microservices/react-frontend/src
+        target: /app/src
   token:
     build: microservices/token
     ports:
