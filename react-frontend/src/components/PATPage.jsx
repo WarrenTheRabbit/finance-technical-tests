@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import logo from '../assets/images/logo.svg';
 import qrCode from '../assets/images/qr-code.svg';  // Add the path to your QR code image
 
@@ -9,13 +10,18 @@ const PATPage = () => {
   const [pat, setPat] = useState('');
   const [error, setError] = useState('');
 
-  const handleAddPAT = () => {
-    // Mock PAT logic
-    if (pat === 'validPAT') {
-      // Logic to handle valid PAT
-      navigate('/processing');
-    } else {
-      setError('Your PAT has expired! / Invalid PAT! Please try again.');
+  const handleAddPAT = async () => {
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/v1/verify-pat', { pat });
+      if (response.data.message === "PAT is valid") {
+        navigate('/dashboard');
+      }
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setError(error.response.data.detail);
+      } else {
+        setError('Your PAT has expired! / Invalid PAT! Please try again.');
+      }
     }
   };
 

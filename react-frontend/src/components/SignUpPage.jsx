@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import logo from '../assets/images/logo.svg';
+import axios from 'axios';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const SignUpPage = () => {
     }
   };
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     if (!firstName || !lastName || !email || !password || !confirmPassword) {
       setError('Please fill in all fields');
       return;
@@ -48,17 +49,26 @@ const SignUpPage = () => {
       return;
     }
 
-    // Check if the email is already registered
-    const existingUser = JSON.parse(localStorage.getItem('user'));
-    if (existingUser && existingUser.email === email) {
-      setError('Your email has been registered, please login');
-      return;
+    setError('');
+
+    try {
+      const response = await axios.post('http://localhost:8000/v1/user', {
+        firstName,
+        lastName,
+        email,
+        password,
+      });
+
+      if (response.data.message === "User registered successfully") {
+        navigate('/login', { state: { registered: true } });
+      }
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setError(error.response.data.detail);
+      } else {
+        setError('An unexpected error occurred. Please try again.');
+      }
     }
-
-    const user = { firstName, lastName, email, password };
-    localStorage.setItem('user', JSON.stringify(user));
-
-    navigate('/login', { state: { registered: true } });
   };
 
   return (
@@ -70,7 +80,7 @@ const SignUpPage = () => {
         sx={{ 
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'flex-start',  // Align items to flex-start
+          alignItems: 'flex-start',
           width: '100%',
           mt: 2
         }}
@@ -104,13 +114,13 @@ const SignUpPage = () => {
               fontFamily: 'Inria Sans',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
                 '&:hover fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
               },
             }}
@@ -135,13 +145,13 @@ const SignUpPage = () => {
               fontFamily: 'Inria Sans',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
                 '&:hover fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
               },
             }}
@@ -200,13 +210,13 @@ const SignUpPage = () => {
               fontFamily: 'Inria Sans',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
                 '&:hover fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
               },
             }}
@@ -232,13 +242,13 @@ const SignUpPage = () => {
               fontFamily: 'Inria Sans',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
                 '&:hover fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
                 },
               },
             }}
@@ -249,7 +259,7 @@ const SignUpPage = () => {
               style: { fontFamily: 'Inria Sans', borderRadius: '30px', border: 'none' },
             }}
           />
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mt: 2 }}>  {/* Added box for checkboxes */}
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mt: 2 }}>
             <FormControlLabel
               control={
                 <Checkbox 
@@ -318,7 +328,7 @@ const SignUpPage = () => {
                 borderRadius: '25px', 
                 padding: '10px 30px', 
                 fontWeight: 'bold', 
-                fontSize: '1rem', // Adjusted font size
+                fontSize: '1rem',
                 textTransform: 'uppercase',
                 width: 'auto',
                 minWidth: '150px',

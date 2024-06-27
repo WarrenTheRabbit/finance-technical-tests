@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import axios from 'axios';
 import logo from '../assets/images/logo.svg';
 
 const LoginPage = () => {
@@ -11,15 +12,19 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const [registered, setRegistered] = useState(location.state?.registered || false);
 
-  const handleLogin = () => {
-    // Retrieve user data from local storage
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
-      // Mock successful login
+  const handleLogin = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/v1/user', {
+        auth: {
+          username: email,
+          password: password
+        }
+      });
+      const user = response.data;
+      localStorage.setItem('user', JSON.stringify(user));
       navigate('/pat');
-    } else {
-      setError('Invalid email address / password! Please try again.');
+    } catch (err) {
+      setError(err.response ? err.response.data.detail : 'Login failed');
     }
   };
 
@@ -39,8 +44,8 @@ const LoginPage = () => {
               fontSize: '20px', 
               color: '#f9c818', 
               lineHeight: "19px",
-              textShadow: '8px 8px 14px rgba(0, 0, 0, 0.5)', // Outer shadow
-              WebkitTextStroke: '11px white', // White border
+              textShadow: '8px 8px 14px rgba(0, 0, 0, 0.5)', 
+              WebkitTextStroke: '11px white', 
               mb: 2,
               position: "absolute",
               transform: 'translateX(-50%)',
@@ -110,13 +115,13 @@ const LoginPage = () => {
               fontFamily: 'Inria Sans',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
                 '&:hover fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
               },
             }}
@@ -142,13 +147,13 @@ const LoginPage = () => {
               fontFamily: 'Inria Sans',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
                 '&:hover fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)', // Default grey color when focused
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
               },
             }}

@@ -3,14 +3,17 @@ import { Avatar, Box, Divider, IconButton, Typography, Drawer, List, ListItem, L
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import HomeIcon from '@mui/icons-material/Home';
+import DescriptionIcon from '@mui/icons-material/Description';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
-// Custom Menu Icon component
 const CustomMenuIcon = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  alignItems: 'flex-start',  // Align lines to the left
+  alignItems: 'flex-start',
   '& div': {
     width: '20px',
     height: '3px',
@@ -46,57 +49,46 @@ const Sidebar = ({ user, onButtonClick, activeButton }) => {
   const drawer = (
     <Box 
       sx={{ 
-        width: 250, 
+        width: 100, 
         height: '100%', 
-        bgcolor: '#fff', 
+        bgcolor: '#eff4f7', 
         display: 'flex', 
         flexDirection: 'column', 
-        alignItems: 'center' 
+        alignItems: 'center',
+        boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.1)',
+        borderTopRightRadius: '20px',
+        borderBottomRightRadius: '20px',
+        position: 'fixed', // Fixed positioning to ensure no background behind the sidebar
       }}
     >
-      <Box sx={{ padding: 2, display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <Typography variant="h6">Financial Planner</Typography>
-        <Avatar alt={user.name} src={user.avatar} sx={{ width: 100, height: 100, marginTop: 4, marginBottom: 4 }} />
-        <Typography variant="h6">{user.name}</Typography>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderWidth: 1,
-            borderColor: "#ccc",  
-            borderRadius: 4, 
-            backgroundColor: "#f5f5f5", 
-            paddingLeft: 1,
-            paddingRight: 2 
-          }}
-        >
-          <IconButton sx={{ fontSize: 'small' }}>
-            <AccountBalanceWalletIcon sx={{ fontSize: 'small' }} />
-          </IconButton>
-          <Typography sx={{ fontSize: 'small' }} variant="body1">${user.balance.toLocaleString()}</Typography>
-        </Box>
+      <Box sx={{ padding: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <Avatar alt={`${user.firstName} ${user.lastName}`} src={user.avatar} sx={{ width: 50, height: 50, marginTop: 2, marginBottom: 1 }} />
+        <Typography variant="body1" sx={{ fontFamily: 'Inria Sans', fontWeight: 'bold', textAlign: 'center' }}>
+          {`${user.firstName} ${user.lastName}`}
+        </Typography>
+        <Divider sx={{ width: '80%', marginTop: 1, marginBottom: 1 }} />
       </Box>
 
-      {/* <Divider sx={{ width: '100%', marginTop: 2, marginBottom: 2 }} />
-
       <List sx={{ width: '100%' }}>
-        <ListItem button onClick={() => handleNavigation('dashboard')} selected={activeButton === 'dashboard'}>
-          <ListItemText primary="Dashboard" />
+        <ListItem button onClick={() => handleNavigation('dashboard')} selected={activeButton === 'dashboard'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
+          <HomeIcon sx={{ marginBottom: 0.5 }} />
+          <ListItemText primary="Home" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
-        <ListItem button onClick={() => handleNavigation('transactions')} selected={activeButton === 'transactions'}>
-          <ListItemText primary="Transactions" />
+        <ListItem button onClick={() => handleNavigation('details')} selected={activeButton === 'details'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
+          <DescriptionIcon sx={{ marginBottom: 0.5 }} />
+          <ListItemText primary="Details" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
-        <ListItem button onClick={() => handleNavigation('about')} selected={activeButton === 'about'}>
-          <ListItemText primary="About" />
+        <ListItem button onClick={() => handleNavigation('profile')} selected={activeButton === 'profile'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
+          <AccountBoxIcon sx={{ marginBottom: 0.5 }} />
+          <ListItemText primary="My Profile" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
-      </List>
-
-      <Divider sx={{ width: '100%', marginTop: 2, marginBottom: 2 }} /> */}
-
-      <List sx={{ width: '100%', marginTop: 'auto' }}>
-        <ListItem button onClick={() => handleNavigation('*')} selected={activeButton === '*'}>
-          <ListItemText primary="Sign Out" />
+        <ListItem button onClick={() => handleNavigation('contacts')} selected={activeButton === 'contacts'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
+          <ContactMailIcon sx={{ marginBottom: 0.5 }} />
+          <ListItemText primary="Contact" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
+        </ListItem>
+        <ListItem button onClick={() => handleNavigation('*')} selected={activeButton === '*'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginTop: 'auto', marginBottom: 2 }}>
+          <ExitToAppIcon sx={{ marginBottom: 0.5 }} />
+          <ListItemText primary="Sign Out" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
       </List>
     </Box>
@@ -132,20 +124,23 @@ const Sidebar = ({ user, onButtonClick, activeButton }) => {
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
-          display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 250 },
+          display: { xs: 'block', md: 'none' }
         }}
       >
         {drawer}
       </Drawer>
       <Box
         sx={{ 
-          width: { md: 250 }, 
+          width: { md: 120 }, 
           flexShrink: { md: 0 }, 
           display: { xs: 'none', md: 'flex' },
           flexDirection: 'column',
           height: '100vh',
-          bgcolor: '#fff',
+          bgcolor: '#eff4f7',
+          boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.1)',
+          borderTopRightRadius: '20px',
+          borderBottomRightRadius: '20px',
+          position: 'fixed' // Fixed positioning to ensure no background behind the sidebar
         }}
       >
         {drawer}
