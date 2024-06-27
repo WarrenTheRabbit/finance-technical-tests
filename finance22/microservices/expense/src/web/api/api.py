@@ -15,7 +15,7 @@ from src.web.app import app
 from src.web.api.schemas import GetExpenseSchema, CreateExpenseSchema
 
 
-@app.get("/expense/category")
+@app.get("/summary")
 async def aggregate_expenses(
     start_date: datetime = Query(None, description="Optional start date for filtering (YYYY-MM-DD)"),
     end_date: datetime = Query(None, description="Optional end date for filtering (YYYY-MM-DD)"),
