@@ -33,7 +33,7 @@ const CustomMenuIcon = styled('div')(({ theme }) => ({
   },
 }));
 
-const Sidebar = ({ user, onButtonClick, activeButton }) => {
+const Sidebar = ({ user, onButtonClick = () => {}, activeButton }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
 

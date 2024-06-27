@@ -22,7 +22,7 @@ class User(BaseModel):
     lastName: str
     email: str
     password: str
-    avatar: str = "https://via.placeholder.com/100"  # Default profile photo
+    avatar: str = "http://localhost:3000/default-profile.svg"  # Default profile photo
 
 class PATVerification(BaseModel):
     pat: str
