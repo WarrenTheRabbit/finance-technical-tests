@@ -1,78 +1,58 @@
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import Body
 from pydantic import BaseModel
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
-import hashlib
-import time
+from starlette import status
 
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:*"],
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Dummy user database
-users_db = {}
+@app.get("/v1/category")
+async def get_expenses():
+    return [
+        {"category": "Good Life", "amount": 100, "percentage": 10},
+        {"category": "Home", "amount": 40, "percentage": 4},
+        {"category": "Personal", "amount": 160, "percentage": 16},
+        {"category": "Transport", "amount": 700, "percentage": 70},
+    ]
+    
+@app.post("v1/pat")
+async def add_pat():
+    pass
 
-class User(BaseModel):
-    firstName: str
-    lastName: str
-    email: str
+user = {
+    "username": "password"
+}
+
+pat_db = {
+    "username": "up:yeah:L9C5xLOgo79WoJnEqwnvCVV7uePqcMi0G3M9pNpqW57OMjTgg8sIQKvt9THUn4KMT7vIdt380DvpcyDPDKHCes92CDfIbi4S0Mp2IPcKWFqrJ6xJrkRzShHrgTI13V6n"
+}
+
+class UserCredentials(BaseModel):
+    username: str
     password: str
-    avatar: str = "https://via.placeholder.com/100"  # Default profile photo
-
-class PATVerification(BaseModel):
-    pat: str
-
-def hash_password(password: str) -> str:
-    return hashlib.sha256(password.encode()).hexdigest()
 
 @app.post("/v1/user")
-async def sign_up(user: User):
-    if user.email in users_db:
-        raise HTTPException(status_code=400, detail="Email already registered")
-    
-    users_db[user.email] = {
-        "firstName": user.firstName,
-        "lastName": user.lastName,
-        "email": user.email,
-        "hashed_password": hash_password(user.password),
-        "pat": "",
-        "avatar": user.avatar,
-        "expenses": [
-            {"category": "Good Life", "amount": 500, "percentage": 25},
-            {"category": "Home", "amount": 1000, "percentage": 50},
-            {"category": "Personal", "amount": 300, "percentage": 15},
-            {"category": "Transport", "amount": 200, "percentage": 10},
-        ]  # Example expenses
-    }
-    return {"message": "User registered successfully"}
+async def login(credentials: UserCredentials):
+    username = credentials.username
+    password = credentials.password
 
-security = HTTPBasic()
-
-@app.get("/v1/user")
-async def sign_in(credentials: HTTPBasicCredentials = Depends(security)):
-    user = users_db.get(credentials.username)
-    if not user or user["hashed_password"] != hash_password(credentials.password):
-        raise HTTPException(status_code=401, detail="Invalid email or password")
-    return {"email": user["email"], "firstName": user["firstName"], "lastName": user["lastName"], "avatar": user["avatar"]}
-
-@app.post("/v1/verify-pat")
-async def verify_pat(pat_verification: PATVerification):
-    if pat_verification.pat == "validPAT":
-        return {"message": "PAT is valid"}
+    if username in user and user[username] == password:
+        return "answer"
     else:
-        raise HTTPException(status_code=401, detail="Invalid or expired PAT")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED, 
+            detail="Incorrect username or password"
+        )
 
-@app.get("/v1/expenses")
-async def get_expenses(email: str):
-    user = users_db.get(email)
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
-    return user["expenses"]
+
 
 if __name__ == "__main__":
     import uvicorn
