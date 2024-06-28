@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import { Avatar, Box, Divider, IconButton, Typography, Drawer, List, ListItem, ListItemText, Toolbar, AppBar, IconButton as MuiIconButton } from '@mui/material';
+import { Avatar, Box, Divider, List, ListItem, ListItemText, AppBar, Toolbar, IconButton as MuiIconButton, Typography, Drawer } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
-import DescriptionIcon from '@mui/icons-material/Description';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
+import CommuteIcon from '@mui/icons-material/Commute';
+import PersonIcon from '@mui/icons-material/Person';
 
 const CustomMenuIcon = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -58,7 +61,7 @@ const Sidebar = ({ user, onButtonClick = () => {}, activeButton }) => {
         boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.1)',
         borderTopRightRadius: '20px',
         borderBottomRightRadius: '20px',
-        position: 'fixed', // Fixed positioning to ensure no background behind the sidebar
+        position: 'fixed',
       }}
     >
       <Box sx={{ padding: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -72,19 +75,31 @@ const Sidebar = ({ user, onButtonClick = () => {}, activeButton }) => {
       <List sx={{ width: '100%' }}>
         <ListItem button onClick={() => handleNavigation('dashboard')} selected={activeButton === 'dashboard'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
           <HomeIcon sx={{ marginBottom: 0.5 }} />
-          <ListItemText primary="Home" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
+          <ListItemText primary="Dashboard" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
-        <ListItem button onClick={() => handleNavigation('details')} selected={activeButton === 'details'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
-          <DescriptionIcon sx={{ marginBottom: 0.5 }} />
-          <ListItemText primary="Details" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
+        <ListItem button onClick={() => handleNavigation('good-life')} selected={activeButton === 'good-life'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
+          <SportsSoccerIcon sx={{ marginBottom: 0.5 }} />
+          <ListItemText primary="Good Life" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
+        </ListItem>
+        <ListItem button onClick={() => handleNavigation('transport')} selected={activeButton === 'transport'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
+          <CommuteIcon sx={{ marginBottom: 0.5 }} />
+          <ListItemText primary="Transport" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
+        </ListItem>
+        <ListItem button onClick={() => handleNavigation('personal')} selected={activeButton === 'personal'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
+          <PersonIcon sx={{ marginBottom: 0.5 }} />
+          <ListItemText primary="Personal" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
+        </ListItem>
+        <ListItem button onClick={() => handleNavigation('home')} selected={activeButton === 'home'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
+          <HomeIcon sx={{ marginBottom: 0.5 }} />
+          <ListItemText primary="Home" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
         <ListItem button onClick={() => handleNavigation('profile')} selected={activeButton === 'profile'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
           <AccountBoxIcon sx={{ marginBottom: 0.5 }} />
-          <ListItemText primary="My Profile" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
+          <ListItemText primary="Profile" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
         <ListItem button onClick={() => handleNavigation('contacts')} selected={activeButton === 'contacts'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
           <ContactMailIcon sx={{ marginBottom: 0.5 }} />
-          <ListItemText primary="Contact" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
+          <ListItemText primary="Contacts" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
         <ListItem button onClick={() => handleNavigation('*')} selected={activeButton === '*'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginTop: 'auto', marginBottom: 2 }}>
           <ExitToAppIcon sx={{ marginBottom: 0.5 }} />
@@ -121,7 +136,7 @@ const Sidebar = ({ user, onButtonClick = () => {}, activeButton }) => {
         open={drawerOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         sx={{
           display: { xs: 'block', md: 'none' }
@@ -140,7 +155,7 @@ const Sidebar = ({ user, onButtonClick = () => {}, activeButton }) => {
           boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.1)',
           borderTopRightRadius: '20px',
           borderBottomRightRadius: '20px',
-          position: 'fixed' // Fixed positioning to ensure no background behind the sidebar
+          position: 'fixed'
         }}
       >
         {drawer}

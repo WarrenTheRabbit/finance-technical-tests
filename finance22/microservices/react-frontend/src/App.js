@@ -3,14 +3,18 @@ import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'r
 import { Box, CssBaseline } from '@mui/material';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
+import GoodLife from './components/GoodLife';  // Import new components
+import Transport from './components/Transport';
+import Personal from './components/Personal';
+import Home from './components/Home';
 import InstructionPage from './components/InstructionPage';
 import SignUpPage from './components/SignUpPage';
 import LoginPage from './components/LoginPage';
 import PATPage from './components/PATPage';
 import TermsAndConditions from './components/TermsAndConditions';
-import Details from './components/Details'; // New blank Details component
-import Profile from './components/Profile'; // New blank Profile component
-import Contacts from './components/Contacts'; // New blank Contacts component
+import Details from './components/Details';
+import Profile from './components/Profile';
+import Contacts from './components/Contacts';
 
 const AppContent = () => {
   const location = useLocation();
@@ -28,7 +32,7 @@ const AppContent = () => {
     setActiveButton(button);
   };
 
-  const showSidebar = location.pathname === '/dashboard';
+  const showSidebar = ['dashboard', 'good-life', 'transport', 'personal', 'home'].includes(location.pathname.slice(1));
 
   return (
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#f5f5f5', minHeight: '100vh' }}>
@@ -43,6 +47,10 @@ const AppContent = () => {
           <Route path="/pat" element={<PATPage />} />
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/good-life" element={<GoodLife />} />
+          <Route path="/transport" element={<Transport />} />
+          <Route path="/personal" element={<Personal />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/details" element={<Details />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/contacts" element={<Contacts />} />
