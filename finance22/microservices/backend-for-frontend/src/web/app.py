@@ -4,6 +4,7 @@ from fastapi import Body
 from pydantic import BaseModel
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from starlette import status
+from src.services.services import ping_up_api
 
 app = FastAPI()
 app.add_middleware(
@@ -23,9 +24,15 @@ async def get_expenses():
         {"category": "Transport", "amount": 700, "percentage": 70},
     ]
     
-@app.post("v1/pat")
-async def add_pat():
-    pass
+
+@app.post("/v1/pat")
+async def add_pat(pat: str = Body(...)):
+    try:
+        response = ping_up_api(pat)
+    except Exception as e:
+        return {"message": str(e)}
+    return {"message": response}
+    
 
 user = {
     "username": "password"
