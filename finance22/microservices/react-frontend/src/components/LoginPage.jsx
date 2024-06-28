@@ -14,11 +14,12 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/v1/user', {
-        username: email,
-        password: password
+      const response = await axios.get('http://localhost:8000/v1/user', {
+        auth: {
+          username: email,
+          password: password
+        }
       });
-
       const user = response.data;
       localStorage.setItem('user', JSON.stringify(user));
       navigate('/pat');
@@ -34,17 +35,17 @@ const LoginPage = () => {
       </Box>
       {registered && (
         <Box sx={{ position: 'relative', mt: 2 }}>
-          <Typography
-            variant="h5"
-            gutterBottom
-            sx={{
-              fontFamily: 'Inter',
-              fontWeight: 'bold',
-              fontSize: '20px',
-              color: '#f9c818',
+          <Typography 
+            variant="h5" 
+            gutterBottom 
+            sx={{ 
+              fontFamily: 'Inter', 
+              fontWeight: 'bold', 
+              fontSize: '20px', 
+              color: '#f9c818', 
               lineHeight: "19px",
-              textShadow: '8px 8px 14px rgba(0, 0, 0, 0.5)',
-              WebkitTextStroke: '11px white',
+              textShadow: '8px 8px 14px rgba(0, 0, 0, 0.5)', 
+              WebkitTextStroke: '11px white', 
               mb: 2,
               position: "absolute",
               transform: 'translateX(-50%)',
@@ -55,14 +56,14 @@ const LoginPage = () => {
           >
             Registered Successfully!
           </Typography>
-          <Typography
-            variant="h5"
-            gutterBottom
-            sx={{
-              fontFamily: 'Inter',
-              fontWeight: 'bold',
-              fontSize: '20px',
-              color: '#f9c818',
+          <Typography 
+            variant="h5" 
+            gutterBottom 
+            sx={{ 
+              fontFamily: 'Inter', 
+              fontWeight: 'bold', 
+              fontSize: '20px', 
+              color: '#f9c818', 
               lineHeight: "19px",
               mb: 2,
               position: "relative",
@@ -76,8 +77,8 @@ const LoginPage = () => {
           </Typography>
         </Box>
       )}
-      <Box
-        sx={{
+      <Box 
+        sx={{ 
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -85,11 +86,11 @@ const LoginPage = () => {
           width: '100%',
         }}
       >
-        <Box
-          sx={{
-            width: 400,
-            padding: 4,
-            borderRadius: '25px',
+        <Box 
+          sx={{ 
+            width: 400, 
+            padding: 4, 
+            borderRadius: '25px', 
             boxShadow: 3,
             textAlign: 'center'
           }}
@@ -107,20 +108,20 @@ const LoginPage = () => {
             margin="normal"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            sx={{
-              backgroundColor: 'white',
+            sx={{ 
+              backgroundColor: 'white', 
               borderRadius: '30px',
               boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
               fontFamily: 'Inria Sans',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)',
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
                 '&:hover fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)',
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)',
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
               },
             }}
@@ -139,20 +140,20 @@ const LoginPage = () => {
             margin="normal"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            sx={{
-              backgroundColor: 'white',
+            sx={{ 
+              backgroundColor: 'white', 
               borderRadius: '30px',
               boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
               fontFamily: 'Inria Sans',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)',
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
                 '&:hover fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)',
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)',
+                  borderColor: 'rgba(0, 0, 0, 0.23)', 
                 },
               },
             }}
@@ -165,40 +166,40 @@ const LoginPage = () => {
           />
           {error && <Typography color="error" variant="body2" sx={{ mt: 1 }}>{error}</Typography>}
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button
-              variant="contained"
-              sx={{
-                marginTop: 2,
-                background: 'linear-gradient(to right, #8adbb1, #87ddc7)',
-                color: '#fff',
-                borderRadius: '25px',
-                padding: '10px 30px',
-                fontWeight: 'bold',
-                fontSize: '1rem',
+            <Button 
+              variant="contained" 
+              sx={{ 
+                marginTop: 2, 
+                background: 'linear-gradient(to right, #8adbb1, #87ddc7)', 
+                color: '#fff', 
+                borderRadius: '25px', 
+                padding: '10px 30px', 
+                fontWeight: 'bold', 
+                fontSize: '1rem', 
                 textTransform: 'uppercase',
                 width: 'auto',
                 minWidth: '150px',
                 maxWidth: '250px'
-              }}
+              }} 
               onClick={handleLogin}
             >
               Sign in
             </Button>
           </Box>
-          <Typography
-            variant="body2"
-            textAlign="center"
+          <Typography 
+            variant="body2" 
+            textAlign="center" 
             sx={{ mt: 2, color: '#fff', fontFamily: 'Inria Sans', fontWeight: 'regular' }}
           >
             Don’t have an account?
           </Typography>
-          <Typography
-            variant="body2"
-            textAlign="center"
+          <Typography 
+            variant="body2" 
+            textAlign="center" 
             sx={{ color: '#fff', fontFamily: 'Inria Sans', fontWeight: 'bold' }}
           >
-            <Link
-              to="/signup"
+            <Link 
+              to="/signup" 
               style={{ color: '#fff', textDecoration: 'none' }}
             >
               Register here!

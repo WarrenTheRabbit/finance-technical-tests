@@ -21,7 +21,7 @@ app.add_middleware(
 @app.get("/v1/category")
 async def get_expenses():
     return [
-        {"category": "Good Life", "amount": 100, "percentage": 10},
+        {"category": "Good Life", "amount": 60, "percentage": 10},
         {"category": "Home", "amount": 40, "percentage": 4},
         {"category": "Personal", "amount": 160, "percentage": 16},
         {"category": "Transport", "amount": 700, "percentage": 70},
