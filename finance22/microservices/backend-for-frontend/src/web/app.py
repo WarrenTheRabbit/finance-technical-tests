@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HTTPException, Body
+from fastapi import FastAPI, Depends, HTTPException, Body, Response
 from fastapi.middleware.cors import CORSMiddleware
 from src.services.services import ping_up_api
 from starlette import status
@@ -34,7 +34,7 @@ async def add_pat(pat = Body(..., example={"pat": "e"})):
         response = ping_up_api(pat['pat'])
     except Exception as e:
         raise e
-    return {"message": response}
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
     
 
 user = {
