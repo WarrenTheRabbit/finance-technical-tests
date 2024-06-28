@@ -50,7 +50,7 @@ class UserCredentials(BaseModel):
     username: str
     password: str
 
-@app.post("/v1/user")
+@app.post("/v1/auth")
 async def login(credentials: UserCredentials):
     username = credentials.username
     password = credentials.password
@@ -62,6 +62,10 @@ async def login(credentials: UserCredentials):
             status_code=status.HTTP_401_UNAUTHORIZED, 
             detail="Incorrect username or password"
         )
+        
+@app.post("/v1/user")
+async def register():
+    return Response(status_code=status.HTTP_201_CREATED)
 
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/v1/user', {
+      const response = await axios.post('http://localhost:8000/v1/auth', {
         username: username,
         password: password
       });

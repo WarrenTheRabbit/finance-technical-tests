@@ -59,7 +59,7 @@ const SignUpPage = () => {
         password,
       });
 
-      if (response.data.message === "User registered successfully") {
+      if (response.status === 201) {
         navigate('/login', { state: { registered: true } });
       }
     } catch (error) {
