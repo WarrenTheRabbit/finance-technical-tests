@@ -11,7 +11,7 @@ const PATPage = () => {
 
   const handleAddPAT = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/v1/verify-pat', { pat });
+      const response = await axios.post('http://127.0.0.1:8000/v1/pat', { pat });
       if (response.data.message === "PAT is valid") {
         navigate('/dashboard');
       }
