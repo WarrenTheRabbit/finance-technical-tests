@@ -1,10 +1,13 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import Body
-from pydantic import BaseModel
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
-from starlette import status
 from src.services.services import ping_up_api
+from starlette import status
+from pydantic import BaseModel
+# from expenses_client import ExpensesClient
+
+#TODO: Create a JS SDK for each endpoint.
+#TODO: Add dummy data.
+#TODO: Connect endpoints to real microservices.
 
 app = FastAPI()
 app.add_middleware(
@@ -26,11 +29,11 @@ async def get_expenses():
     
 
 @app.post("/v1/pat")
-async def add_pat(pat: str = Body(...)):
+async def add_pat(pat = Body(..., example={"pat": "e"})):
     try:
-        response = ping_up_api(pat)
+        response = ping_up_api(pat['pat'])
     except Exception as e:
-        return {"message": str(e)}
+        raise e
     return {"message": response}
     
 
@@ -58,7 +61,6 @@ async def login(credentials: UserCredentials):
             status_code=status.HTTP_401_UNAUTHORIZED, 
             detail="Incorrect username or password"
         )
-
 
 
 if __name__ == "__main__":
