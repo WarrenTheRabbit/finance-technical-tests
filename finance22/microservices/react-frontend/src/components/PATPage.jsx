@@ -19,7 +19,7 @@ const PATPage = () => {
       if (error.response && error.response.data) {
         setError(error.response.data.detail);
       } else {
-        setError('Your PAT has expired! / Invalid PAT! Please try again.');
+        setError('Invalid Personal Access Token.');
       }
     }
   };
@@ -36,8 +36,8 @@ const PATPage = () => {
       <Box sx={{ textAlign: 'center', marginTop: 2 }}>
         <img src={logo} alt="Logo" style={{ width: '50px', marginTop: '50px' }} />
       </Box>
-      <Box 
-        sx={{ 
+      <Box
+        sx={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -45,11 +45,11 @@ const PATPage = () => {
           width: '100%',
         }}
       >
-        <Box 
-          sx={{ 
-            width: 400, 
-            padding: 4, 
-            borderRadius: '25px', 
+        <Box
+          sx={{
+            width: 400,
+            padding: 4,
+            borderRadius: '25px',
             boxShadow: 3,
             textAlign: 'center',
             marginTop: -15,
@@ -63,6 +63,8 @@ const PATPage = () => {
           </Typography>
           <Typography variant="body1" sx={{ color: '#fff', fontFamily: 'Inria Sans', fontSize: 14, mb: 2, textAlign: 'left' }}>
             Instruction: Please click <Link href="https://api.up.com.au/getting_started" target="_blank" rel="noopener noreferrer" sx={{ color: '#fff', textDecoration: 'underline' }}>this link</Link>, follow the instructions on that page and paste your token below.
+
+            up:yeah:L9C5xLOgo79WoJnEqwnvCVV7uePqcMi0G3M9pNpqW57OMjTgg8sIQKvt9THUn4KMT7vIdt380DvpcyDPDKHCes92CDfIbi4S0Mp2IPcKWFqrJ6xJrkRzShHrgTI13V6n
           </Typography>
           <TextField
             label="Personal Access Token"
@@ -71,8 +73,8 @@ const PATPage = () => {
             margin="normal"
             value={pat}
             onChange={handlePatChange}
-            sx={{ 
-              backgroundColor: 'white', 
+            sx={{
+              backgroundColor: 'white',
               borderRadius: '30px',
               boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
               fontFamily: 'Inria Sans',
@@ -96,21 +98,21 @@ const PATPage = () => {
             }}
           />
           {error && <Typography color="error" variant="body2" sx={{ mt: 1, fontSize: '0.8rem' }}>{error}</Typography>}
-          <Button 
-            variant="contained" 
-            sx={{ 
-              marginTop: 2, 
-              background: 'linear-gradient(to right, #8adbb1, #87ddc7)', 
-              color: '#fff', 
-              borderRadius: '25px', 
-              padding: '10px 30px', 
-              fontWeight: 'bold', 
-              fontSize: '1rem', 
+          <Button
+            variant="contained"
+            sx={{
+              marginTop: 2,
+              background: 'linear-gradient(to right, #8adbb1, #87ddc7)',
+              color: '#fff',
+              borderRadius: '25px',
+              padding: '10px 30px',
+              fontWeight: 'bold',
+              fontSize: '1rem',
               textTransform: 'uppercase',
               width: 'auto',
               minWidth: '150px',
               maxWidth: '250px'
-            }} 
+            }}
             onClick={handleAddPAT}
           >
             Add PAT
