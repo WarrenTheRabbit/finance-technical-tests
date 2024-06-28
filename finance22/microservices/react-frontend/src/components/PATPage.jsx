@@ -12,7 +12,7 @@ const PATPage = () => {
 
   const handleAddPAT = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/v1/verify-pat', { pat });
+      const response = await axios.post('http://127.0.0.1:8000/v1/pat', { pat });
       if (response.data.message === "PAT is valid") {
         navigate('/dashboard');
       }
@@ -37,8 +37,8 @@ const PATPage = () => {
       <Box sx={{ textAlign: 'center', marginTop: 2 }}>
         <img src={logo} alt="Logo" style={{ width: '50px', marginTop: '50px' }} />
       </Box>
-      <Box 
-        sx={{ 
+      <Box
+        sx={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -46,11 +46,11 @@ const PATPage = () => {
           width: '100%',
         }}
       >
-        <Box 
-          sx={{ 
-            width: 400, 
-            padding: 4, 
-            borderRadius: '25px', 
+        <Box
+          sx={{
+            width: 400,
+            padding: 4,
+            borderRadius: '25px',
             boxShadow: 3,
             textAlign: 'center'
           }}
@@ -74,8 +74,8 @@ const PATPage = () => {
             margin="normal"
             value={pat}
             onChange={handlePatChange}
-            sx={{ 
-              backgroundColor: 'white', 
+            sx={{
+              backgroundColor: 'white',
               borderRadius: '30px',
               boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
               fontFamily: 'Inria Sans',
@@ -99,21 +99,21 @@ const PATPage = () => {
             }}
           />
           {error && <Typography color="error" variant="body2" sx={{ mt: 1, fontSize: '0.8rem' }}>{error}</Typography>}
-          <Button 
-            variant="contained" 
-            sx={{ 
-              marginTop: 2, 
-              background: 'linear-gradient(to right, #8adbb1, #87ddc7)', 
-              color: '#fff', 
-              borderRadius: '25px', 
-              padding: '10px 30px', 
-              fontWeight: 'bold', 
-              fontSize: '1rem', 
+          <Button
+            variant="contained"
+            sx={{
+              marginTop: 2,
+              background: 'linear-gradient(to right, #8adbb1, #87ddc7)',
+              color: '#fff',
+              borderRadius: '25px',
+              padding: '10px 30px',
+              fontWeight: 'bold',
+              fontSize: '1rem',
               textTransform: 'uppercase',
               width: 'auto',
               minWidth: '150px',
               maxWidth: '250px'
-            }} 
+            }}
             onClick={handleAddPAT}
           >
             Add PAT
