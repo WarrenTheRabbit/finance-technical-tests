@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Box, Typography, TextField, Button } from '@mui/material';
+import { Box, Typography, TextField, Button, Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/images/logo.svg';
-import qrCode from '../assets/images/qr-code.svg';  // Add the path to your QR code image
 
 const PATPage = () => {
   const navigate = useNavigate();
@@ -52,20 +51,18 @@ const PATPage = () => {
             padding: 4, 
             borderRadius: '25px', 
             boxShadow: 3,
-            textAlign: 'center'
+            textAlign: 'center',
+            marginTop: -15,
           }}
           style={{
             background: 'linear-gradient(90deg, #6760f1, #9362f1)',
           }}
         >
-          <Typography variant="h4" gutterBottom textAlign="center" sx={{ fontWeight: 'bold', color: '#fff' }}>
+          <Typography variant="h4" gutterBottom textAlign="center" sx={{ fontWeight: 'bold', color: '#fff', mb: 5 }}>
             Your PAT
           </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-            <img src={qrCode} alt="QR Code" style={{ width: '150px', height: '150px' }} />
-          </Box>
-          <Typography variant="body1" sx={{ color: '#fff', fontFamily: 'Inria Sans', fontSize: 11, mb: 2, maxWidth: '150px', textAlign: 'left', margin: '0 auto' }}>
-            Instruction: Scan the QR code, follow the instructions on that page and paste your token below.
+          <Typography variant="body1" sx={{ color: '#fff', fontFamily: 'Inria Sans', fontSize: 14, mb: 2, textAlign: 'left' }}>
+            Instruction: Please click <Link href="https://api.up.com.au/getting_started" target="_blank" rel="noopener noreferrer" sx={{ color: '#fff', textDecoration: 'underline' }}>this link</Link>, follow the instructions on that page and paste your token below.
           </Typography>
           <TextField
             label="Personal Access Token"
