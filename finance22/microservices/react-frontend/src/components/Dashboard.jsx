@@ -12,10 +12,10 @@ const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 const Dashboard = () => {
   const [shouldFetch, setShouldFetch] = useState(true);
-  const user = JSON.parse(localStorage.getItem('user')) || { email: '' };
+  const user = JSON.parse(localStorage.getItem('user')) || { user_id: 'username' };
 
   const { data: expenseData, error, isValidating } = useSWR(
-    shouldFetch ? `http://localhost:8000/v1/expenses?email=${user.email}` : null,
+    shouldFetch ? `http://localhost:8000/v1/category?user_id=${user.user_id}` : null,
     fetcher,
     {
       revalidateOnFocus: false,
@@ -53,33 +53,33 @@ const Dashboard = () => {
         </Grid>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px', marginBottom: '20px' }}>
-        <Button 
-          variant="contained" 
-          sx={{ 
-            background: 'linear-gradient(to right, #8adbb1, #87ddc7)', 
-            color: '#fff', 
-            borderRadius: '25px', 
-            padding: '10px 30px', 
-            fontWeight: 'bold', 
+        <Button
+          variant="contained"
+          sx={{
+            background: 'linear-gradient(to right, #8adbb1, #87ddc7)',
+            color: '#fff',
+            borderRadius: '25px',
+            padding: '10px 30px',
+            fontWeight: 'bold',
             fontSize: '1rem',
             textTransform: 'uppercase',
             width: 'auto',
             minWidth: '150px',
             maxWidth: '250px'
-          }} 
+          }}
           onClick={handleRefresh}
         >
           Refresh
         </Button>
       </Box>
       <Box sx={{ flexShrink: 0, width: '100vw', bgcolor: '#cad6ea', color: '#000000', padding: 2, textAlign: 'center', position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw', marginBottom: '-5vw' }}>
-        <Typography 
-          variant="body2" 
-          paragraph 
-          sx={{ 
-            fontFamily: 'Inria Sans', 
-            fontWeight: 'medium', 
-            fontSize: '10px', 
+        <Typography
+          variant="body2"
+          paragraph
+          sx={{
+            fontFamily: 'Inria Sans',
+            fontWeight: 'medium',
+            fontSize: '10px',
             color: '#000000',
             lineHeight: 1.5,
             display: 'inline-block',
@@ -88,13 +88,13 @@ const Dashboard = () => {
         >
           Need help or have questions? Reach out to our support team anytime.
         </Typography>
-        <Typography 
-          variant="body2" 
-          paragraph 
-          sx={{ 
-            fontFamily: 'Inria Sans', 
-            fontWeight: 'medium', 
-            fontSize: '10px', 
+        <Typography
+          variant="body2"
+          paragraph
+          sx={{
+            fontFamily: 'Inria Sans',
+            fontWeight: 'medium',
+            fontSize: '10px',
             color: '#000000',
             lineHeight: 1.5,
             mt: 0, // remove top margin to move the text closer

@@ -31,14 +31,15 @@ async def get_expenses():
 @app.post("/v1/pat")
 async def add_pat(pat = Body(..., example={"pat": "e"})):
     try:
-        response = ping_up_api(pat['pat'])
+        ping_up_api(pat['pat'])
     except Exception as e:
         raise e
     return Response(status_code=status.HTTP_204_NO_CONTENT)
     
 
-user = {
-    "username": "password"
+mock_user = {
+    "user_id": "username",
+    "password": "password"
 }
 
 pat_db = {
@@ -54,8 +55,8 @@ async def login(credentials: UserCredentials):
     username = credentials.username
     password = credentials.password
 
-    if username in user and user[username] == password:
-        return "answer"
+    if username == mock_user['user_id'] and mock_user['password'] == password:
+        return mock_user
     else:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED, 
