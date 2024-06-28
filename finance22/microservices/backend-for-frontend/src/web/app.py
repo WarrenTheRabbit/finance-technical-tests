@@ -12,29 +12,44 @@ from pydantic import BaseModel
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "http://bank:8000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 @app.get("/v1/category")
-async def get_expenses():
-    return [
-        {"category": "Good Life", "amount": 60, "percentage": 10},
-        {"category": "Home", "amount": 40, "percentage": 4},
-        {"category": "Personal", "amount": 160, "percentage": 16},
-        {"category": "Transport", "amount": 700, "percentage": 70},
-    ]
+async def get_expenses(
+    user_id: Optional[str] = Query(None),
+    category: Optional[str] = Query(None)
+):
+    if category == "Good Life":
+        return [
+            {"category": "Good Life", "amount": 60, "percentage": 10},
+            {"category": "Home", "amount": 40, "percentage": 4},
+            {"category": "Personal", "amount": 160, "percentage": 16},
+            {"category": "Transport", "amount": 700, "percentage": 70},
+        ]
+    else:
+        return [
+            {"category": "Good Life", "amount": 60, "percentage": 10},
+            {"category": "Home", "amount": 40, "percentage": 4},
+            {"category": "Personal", "amount": 160, "percentage": 16},
+            {"category": "Transport", "amount": 700, "percentage": 70},
+        ]
     
+
 
 @app.post("/v1/pat")
 async def add_pat(pat = Body(..., example={"pat": "e"})):
     try:
         ping_up_api(pat['pat'])
     except Exception as e:
-        raise e
-    return Response(status_code=status.HTTP_204_NO_CONTENT)
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED, 
+            detail="Invalid PAT"
+        )
+    return Response(status_code=status.HTTP_201_CREATED)
     
 
 mock_user = {

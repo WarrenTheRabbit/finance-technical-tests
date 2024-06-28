@@ -12,7 +12,7 @@ const PATPage = () => {
   const handleAddPAT = async () => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/v1/pat', { pat });
-      if (response.status === 204) {
+      if (response.status === 201) {
         const user = JSON.parse(localStorage.getItem('user')) || {};
         user.pat = "up:yeah:L9C5xLOgo79WoJnEqwnvCVV7uePqcMi0G3M9pNpqW57OMjTgg8sIQKvt9THUn4KMT7vIdt380DvpcyDPDKHCes92CDfIbi4S0Mp2IPcKWFqrJ6xJrkRzShHrgTI13V6n"
         localStorage.setItem('user', JSON.stringify(user));
