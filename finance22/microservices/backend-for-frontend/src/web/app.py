@@ -16,7 +16,7 @@ import requests# from expenses_client import ExpensesClient
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://finance22-react-1:3000", "http://finance22-bank-1:*"],
+    allow_origins=["http://localhost:3000", "http://finance22-bank-1:*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
