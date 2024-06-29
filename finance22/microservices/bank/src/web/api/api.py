@@ -28,6 +28,14 @@ async def load_full_bank_history(user_id):
         return service.load_history(bearer="up:yeah:L9C5xLOgo79WoJnEqwnvCVV7uePqcMi0G3M9pNpqW57OMjTgg8sIQKvt9THUn4KMT7vIdt380DvpcyDPDKHCes92CDfIbi4S0Mp2IPcKWFqrJ6xJrkRzShHrgTI13V6n", user=user_id)
 
 
+@app.get("/v2/fake_history/{user_id}")
+async def load_full_fake_bank_history(user_id):
+    with UnitOfWork(database="bank_history", 
+                    collection="transactions") as unit_of_work:
+        repository = BankHistoryRepository(unit_of_work.collection)
+        service = BankHistoryService(repository)
+        return service.load_fake_history(user=user_id)
+
 LOG_PATH = Path('logs') / 'api'
     
 @app.get("/first_page_of_history")

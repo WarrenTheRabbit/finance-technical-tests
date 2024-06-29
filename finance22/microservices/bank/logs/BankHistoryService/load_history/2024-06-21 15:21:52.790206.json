@@ -34,13 +34,23 @@
             "data": null
         },
         "category": {
-            "data": null,
+            "data": {
+                "type": "categories",
+                "id": "groceries"
+            },
             "links": {
-                "self": "https://api.up.com.au/api/v1/transactions/a7796a57-4526-45be-86c1-3191335e7b32/relationships/category"
+                "self": "https://api.up.com.au/api/v1/transactions/6e07b87d-ba14-4f24-9bb9-948c8c3b2d1d/relationships/category",
+                "related": "https://api.up.com.au/api/v1/categories/groceries"
             }
         },
         "parentCategory": {
-            "data": null
+            "data": {
+                "type": "categories",
+                "id": "home"
+            },
+            "links": {
+                "related": "https://api.up.com.au/api/v1/categories/home"
+            }
         },
         "tags": {
             "data": [],

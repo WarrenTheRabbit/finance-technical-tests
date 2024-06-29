@@ -21,6 +21,11 @@ class BankHistoryService:
         url = "https://api.up.com.au/api/v1/transactions/"
         results = self._fetch_and_store_transactions(url, bearer, user)
         return results
+    
+    def load_fake_history(self, user):
+        path = Path('data/fake_up.json')
+        results = self._load_fake_history(path, user)
+        return results
         
     def _fetch_and_store_transactions(self, url, bearer, user):
         transactions = []
@@ -58,6 +63,23 @@ class BankHistoryService:
             return True
         except TransactionDocumentAlreadyLoadedIntoBankHistory:
             return False
+        
+    def _load_fake_history(self, path: Path, user):
+        transactions = []
+        with open(path) as file:
+            data = json.load(file)
+            for transaction in data:
+                self._format_response(transaction, user)
+                if self._store_transaction(transaction):
+                    self.transactions_added += 1
+                    transactions.append(transaction)
+                else:
+                    self.transactions_skipped += 1
+        return {
+            "transactions": transactions,
+            "transactions_added": self.transactions_added,
+            "transactions_skipped": self.transactions_skipped
+        }
         
     def _format_response(self, transaction, user):
         transaction['_id'] = transaction['id']
