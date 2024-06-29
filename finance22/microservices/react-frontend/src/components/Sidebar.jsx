@@ -4,8 +4,6 @@ import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
@@ -92,14 +90,6 @@ const Sidebar = ({ user, onButtonClick = () => {}, activeButton }) => {
         <ListItem button onClick={() => handleNavigation('home')} selected={activeButton === 'home'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
           <HomeIcon sx={{ marginBottom: 0.5 }} />
           <ListItemText primary="Home" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
-        </ListItem>
-        <ListItem button onClick={() => handleNavigation('profile')} selected={activeButton === 'profile'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
-          <AccountBoxIcon sx={{ marginBottom: 0.5 }} />
-          <ListItemText primary="Profile" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
-        </ListItem>
-        <ListItem button onClick={() => handleNavigation('contacts')} selected={activeButton === 'contacts'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
-          <ContactMailIcon sx={{ marginBottom: 0.5 }} />
-          <ListItemText primary="Contacts" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
         <ListItem button onClick={() => handleNavigation('*')} selected={activeButton === '*'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginTop: 'auto', marginBottom: 2 }}>
           <ExitToAppIcon sx={{ marginBottom: 0.5 }} />
