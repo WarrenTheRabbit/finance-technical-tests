@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "transactions_client"
-version = "0.1.0"
+name = "transaction_client"
+version = "0.0.0"
 description = "SDK for Token microservice."
 authors = ["Warren <rabbitsinwarrens@gmail.com>"]
 readme = "README.md"
