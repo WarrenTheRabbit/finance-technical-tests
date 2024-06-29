@@ -15,7 +15,8 @@ from src.service.bank_service import BankHistoryService
 from src.repository.mongodb.repository import BankHistoryRepository
 from src.repository.mongodb.unit_of_work import UnitOfWork
 
-
+#TODO: change to POST and update bank_client and auth endpoint.
+#TODO: do not hardcode bearer.
 @app.get("/v2/bank_history/{user_id}")
 async def load_full_bank_history(user_id):
     with UnitOfWork(database="bank_history", 
@@ -25,7 +26,7 @@ async def load_full_bank_history(user_id):
         # token_client = TokenClient()
         # token = token_client.get_token(user_id)
         return service.load_history(bearer="up:yeah:L9C5xLOgo79WoJnEqwnvCVV7uePqcMi0G3M9pNpqW57OMjTgg8sIQKvt9THUn4KMT7vIdt380DvpcyDPDKHCes92CDfIbi4S0Mp2IPcKWFqrJ6xJrkRzShHrgTI13V6n", user=user_id)
-#########################
+
 
 LOG_PATH = Path('logs') / 'api'
     

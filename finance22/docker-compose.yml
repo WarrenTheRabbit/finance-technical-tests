@@ -3,10 +3,14 @@ services:
     build: microservices/backend-for-frontend
     ports:
       - "8000:8000"
+      - "5678:5678"
     volumes:
       - type: bind
         source: microservices/backend-for-frontend/src
         target: /app/src
+      # - type: bind
+      #   source: microservices/bank/src/sdk/
+      #   target: /app/dependencies/bank_client
   bank:
     build: microservices/bank
     ports:

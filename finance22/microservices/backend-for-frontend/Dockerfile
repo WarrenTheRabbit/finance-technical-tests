@@ -1,6 +1,8 @@
 FROM python:3.12-slim
 WORKDIR /app
 COPY requirements.txt /app/
+COPY dependencies /app/dependencies
+RUN pip install /app/dependencies/bank_client-0.0.0-py3-none-any.whl
 RUN pip install --no-cache-dir -r requirements.txt
 ENV PYTHONPATH=/app
-CMD [ "uvicorn", "src.web.app:app", "--host", "0.0.0.0", "--reload"]
+CMD ["uvicorn", "src.web.app:app", "--host", "0.0.0.0", "--reload"]
