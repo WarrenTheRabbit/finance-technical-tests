@@ -1,13 +1,16 @@
 import json
-from fastapi import FastAPI, Depends, HTTPException, Body, Response
-from fastapi import Query
-from fastapi.middleware.cors import CORSMiddleware
-from src.services.services import ping_up_api
+import requests
 from starlette import status
 from pydantic import BaseModel
 from typing import Optional
-import bank_client
-import requests# from expenses_client import ExpensesClient
+from fastapi import FastAPI, Depends, HTTPException, Body, Response
+from fastapi import Query
+from fastapi.middleware.cors import CORSMiddleware
+
+from src.services.services import ping_up_api
+from bank_client import BankClient
+from expense_client import ExpenseClient
+from sync.adapter.transformer import fromUp_to_transactionDB
 
 #TODO: Create a JS SDK for each endpoint.
 #TODO: Add dummy data.
@@ -90,9 +93,15 @@ async def get_expenses(
 
 
 @app.post("/v1/pat")
-async def add_pat(pat = Body(..., example={"pat": "e"})):
+async def use_pat(pat = Body(..., example={"pat": "e"})):
     try:
         ping_up_api(pat['pat'])
+        bank = BankClient(user="username", token=pat['pat'])
+        expense_client = ExpenseClient(user="username")
+        
+        bank.load_fake_history()
+        for transaction in bank.transactions:
+            expense_client.add_expense(transaction, fromUp_to_transactionDB)
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED, 
