@@ -1,1 +1,1 @@
-from .client import TransactionsClient
+from .client import TransactionClient

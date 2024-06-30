@@ -57,7 +57,7 @@ def create_transaction(payload: CreateTransactionSchema):
             unit_of_work.commit()
         except IntegrityError as e:
             if "UNIQUE constraint failed: transaction.transaction_id" in str(e):
-                raise HTTPException(status_code=422, detail=f"Transaction ID '{payload.transaction_id}' already exists")
+                raise HTTPException(status_code=422, detail=f"Transaction with ID '{payload.transaction_id}' already exists")
             elif "NOT NULL constraint failed" in str(e):
                 raise HTTPException(status_code=422, detail=f"{e.orig} for {payload.transaction_id}")
             else:
