@@ -1,11 +1,11 @@
 build: package
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Building containers..."
 	docker-compose up --build
 	@echo "Compelted building containers."
 
 build_tests:
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Building microservices tests..."
 	docker-compose build sync
 	@echo "Compelted building microservice tests.""
@@ -17,7 +17,7 @@ up:
 	docker-compose up
 
 data:
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Creating $(n) fake Up transactions..."
 	@cd microservices/bank/data && .venv-faker/bin/python -m create_up_transactions $(n)
 	@echo "Compelted creating fake Up transactions."
@@ -26,60 +26,54 @@ data:
 package: transaction token bank expense sync
 
 expense:
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Packaging expense SDK..."
 	@cd microservices/expense/src/sdk && python3 -m build;
 	@echo "Compelted packaging expenses SDK."
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Copying SDK to dependent services..."
 	@cp microservices/expense/src/sdk/dist/expense_client-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/expense/src/sdk/dist/expense_client-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
 	@echo "Compelted copying expenses SDK to dependent services."
 
 transaction:
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Packaging transaction SDK..."
-	@echo "########################"
 	@cd microservices/transaction/src/sdk && python3 -m build;
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Copying SDK to dependent services..."
-	@echo "########################"
 	@cp microservices/transaction/src/sdk/dist/transaction_client-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/transaction/src/sdk/dist/transaction_client-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
 	@echo "Compelted."
 
 token:
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Packaging token SDK....."
-	@echo "########################"
 	@cd microservices/token/src/sdk && python3 -m build;
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Copying SDK to dependent services..."
-	@echo "########################"
 	@cp microservices/token/src/sdk/dist/token_client-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/token/src/sdk/dist/token_client-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
  
 bank:
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Packaging bank SDK..."
-	@echo "########################"
 	@cd microservices/bank/src/sdk && python3 -m build;
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Copying SDK to dependent services..."
-	@echo "########################"
 	@cp microservices/bank/src/sdk/dist/bank_client-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/bank/src/sdk/dist/bank_client-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
 
 sync:
-	@echo "########################"
+	@echo "##################################################"
 	@echo "Packaging sync SDK..."
-	@echo "########################"
 	@cd microservices/synchronisation && python3 -m build;
-	@echo "########################"
-	@echo "Copying SDK to dependent services..."
-	@echo "########################"
+	@echo "Completed packaging sync SDK."
+	@echo "##################################################"
+	@echo "Copying SDK files to dependent services..."
 	@cp microservices/synchronisation/dist/sync-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/synchronisation/dist/sync-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
+	@echo "Completed copying SDK files to dependent services."
 	
 sdks: transaction bank expense
 
@@ -97,7 +91,6 @@ reset_bank:
 reset_transaction:
 	@echo "##################################################"
 	@echo "Resetting TRANSACTION db..."
-
 	@docker-compose exec transaction rm transactions.db
 	@docker-compose exec transaction alembic upgrade head
 	@echo "Completed TRANSACTION db reset."
