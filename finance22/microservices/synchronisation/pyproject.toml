@@ -1,2 +1,2 @@
 [tool.pytest.ini_options]
-pythonpath = ["/home/wmarkham/finance-technical-tests/finance22/microservices/synchronisation"]
+pythonpath = ["."]

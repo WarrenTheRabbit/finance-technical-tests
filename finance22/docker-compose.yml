@@ -15,6 +15,10 @@ services:
     build: microservices/bank
     ports:
       - "8001:8000"
+    volumes:
+    - type: bind
+      source: microservices/bank/data/
+      target: /app/data/
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/  
     depends_on:
@@ -49,3 +53,16 @@ services:
     image: mongo:latest
     ports:
       - "27017:27017"
+  sync:
+    build: microservices/synchronisation
+    ports:
+      - "8005:8000"
+    volumes:
+      - type: bind
+        source: microservices/synchronisation
+        target: /app
+    depends_on:
+      - bank
+      - expense
+      - token
+      - transaction
