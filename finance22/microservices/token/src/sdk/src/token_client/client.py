@@ -4,8 +4,9 @@ from datetime import datetime
 
 
 class TokenClient:
-    def __init__(self, base_url="http://localhost:8001"):
+    def __init__(self, base_url="http://localhost:8001", user="username"):
         self.base_url = base_url
+        self.user_id = user
 
     def register_token(self, user_id="Warren", pat_token="example_pat"):
         params = {
@@ -23,8 +24,8 @@ class TokenClient:
             url, "POST", headers=headers, body=json.dumps(params)
         )
 
-    def get_token(self, user_id="Warren"):
-        url = f"{self.base_url}/pat/{user_id}"
+    def get_token(self, user="username") -> str:
+        url = f"{self.base_url}/pat/{user}"
 
         h = httplib2.Http()
         headers = {'Content-type': 'application/json'}
@@ -34,8 +35,7 @@ class TokenClient:
         result = json.loads(content.decode())
         if result[0]:
             return result[0].get("pat_token")
-        else:
-            return None
+        raise Exception("No token found")
 
     def delete_token(self, user_id="Warren"):
         url = f"{self.base_url}/pat/{user_id}"
