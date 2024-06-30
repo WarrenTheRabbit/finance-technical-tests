@@ -19,9 +19,8 @@ class BankClient:
             response = requests.get(
                     "http://bank:8000/v2/bank_history/username", 
                     headers={"accept": "application/json"},
-                    timeout=5  # Timeout after 5 seconds
+                    timeout=30  # Timeout after 5 seconds
                 )
-            print(response)
             if response.status_code == 200:
                 decoded_content = response.content.decode('utf-8')
                 response = json.loads(decoded_content)
@@ -50,9 +49,8 @@ class BankClient:
             response = requests.get(
                     "http://bank:8000/v2/fake_history/username", 
                     headers={"accept": "application/json"},
-                    timeout=5  # Timeout after 5 seconds
+                    timeout=30  # Timeout after 5 seconds
                 )
-            print(response)
             if response.status_code == 200:
                 decoded_content = response.content.decode('utf-8')
                 response = json.loads(decoded_content)

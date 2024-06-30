@@ -23,7 +23,7 @@ class BankHistoryService:
         return results
     
     def load_fake_history(self, user):
-        path = Path('data/fake_up.json')
+        path = Path('data/fake_up_transactions.json')
         results = self._load_fake_history(path, user)
         return results
         
