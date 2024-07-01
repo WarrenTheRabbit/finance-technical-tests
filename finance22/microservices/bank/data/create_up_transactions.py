@@ -1,12 +1,14 @@
 import json
 import random
 import pytz
-import uuid
 import sys
+import random 
 from faker import Faker
 from pathlib import Path
 
 fake = Faker()
+fake.seed_instance(42)
+random.seed(42)
 
 def generate_fake_up_transaction(fake):
     """Generates a transaction dictionary in the Up API format."""
@@ -42,7 +44,7 @@ def generate_fake_up_transaction(fake):
     
     return {
         "type": "transactions",
-        "id": str(uuid.uuid4()), 
+        "id": str(fake.uuid4()), 
         "attributes": {
             "status": "SETTLED",
             "rawText": fake.sentence(),
@@ -79,7 +81,7 @@ def generate_fake_up_transaction(fake):
                     "id": child_category
                 },
                 "links": {
-                    "self": f"https://api.up.com.au/api/v1/transactions/{str(uuid.uuid4())}/relationships/category"
+                    "self": f"https://api.up.com.au/api/v1/transactions/{str(fake.uuid4())}/relationships/category"
                 }
             },
             "parentCategory": 
@@ -92,12 +94,12 @@ def generate_fake_up_transaction(fake):
             "tags": {
                 "data": [],
                 "links": {
-                    "self": f"https://api.up.com.au/api/v1/transactions/{str(uuid.uuid4())}/relationships/tags"
+                    "self": f"https://api.up.com.au/api/v1/transactions/{str(fake.uuid4())}/relationships/tags"
                 }
             }
         },
         "links": {
-            "self": f"https://api.up.com.au/api/v1/transactions/{str(uuid.uuid4())}"
+            "self": f"https://api.up.com.au/api/v1/transactions/{str(fake.uuid4())}"
         }
     }
 
