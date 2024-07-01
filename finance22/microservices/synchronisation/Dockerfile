@@ -4,7 +4,7 @@ COPY requirements.txt pyproject.toml /app/
 COPY dependencies /app/dependencies
 COPY src /app/src
 COPY tests /app/tests
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install /app/dependencies/token_client-0.0.0-py3-none-any.whl
 RUN pip install /app/dependencies/bank_client-0.0.0-py3-none-any.whl
 RUN pip install /app/dependencies/transaction_client-0.0.0-py3-none-any.whl
