@@ -14,7 +14,7 @@ const GoodLife = () => {
   const user = JSON.parse(localStorage.getItem('user')) || { email: '' };
 
   const { data: expenseData, error, isValidating } = useSWR(
-    shouldFetch ? `http://localhost:8000/v1/category?user_id=${user.email}&category=Good Life` : null,
+    shouldFetch ? `http://localhost:8000/v1/chart?parent=Good Life` : null,
     fetcher,
     {
       revalidateOnFocus: false,
@@ -26,7 +26,7 @@ const GoodLife = () => {
 
   const handleRefresh = () => {
     setShouldFetch(true);
-    mutate(`http://localhost:8000/v1/category?user_id=${user.email}&category=Good Life`);
+    mutate(`http://localhost:8000/v1/chart?parent=Good%20Life`);
   };
 
   if (isValidating) {

@@ -1,5 +1,6 @@
 import httplib2
 import requests
+import uritemplate
 import json
 from fastapi import HTTPException
 
@@ -32,33 +33,45 @@ class ExpenseClient:
     def create_expense_report_by_parent_categories(self, transformer):
         try:
             response = requests.get(
-                    "http://expense:8000/v2/report", 
+                    "http://expense:8000/summary", 
                     headers={"accept": "application/json"},
                     timeout=30  # Timeout after 5 seconds
                 )
+            print(response)
             if response.status_code == 200:
                 decoded_content = response.content.decode('utf-8')
-                response = json.loads(decoded_content)
-                self.transactions = response.get("transactions")
-                added = response.get("transactions_added")
-                skipped = response.get("transactions_skipped")
-                return {
-                    "transactions": self.transactions, 
-                    "new transactions synchronised": added, 
-                    "existing transactions skipped": skipped
-                }
+                return transformer(json.loads(decoded_content))
             else:
                 raise HTTPException(
                     status_code=response.status_code,
-                    detail="Bank Client failed to communicate with bank service."
+                    detail="Expense Client failed to communicate with expense service."
                 )
         except Exception as e:
             raise HTTPException(
                 status_code=500,
-                detail="Exception in bank history retrieval: " + str(e)
+                detail="Exception in expense summary: " + str(e)
             )
-        return transformer(result)
     
-    def create_parent_category_report_by_child_categories(self, parent, transformer):
-        
-        return transformer(result)
+    def create_parent_category_report_by_child_categories(self, parent_category, transformer):
+        try:
+            url = uritemplate.expand("http://expense:8000/summary{?parent_category}", parent_category=parent_category)
+            print(url)
+            response = requests.get(
+                        url,
+                        headers={"accept": "application/json"},
+                        timeout=30
+            )
+            print(response)
+            if response.status_code == 200:
+                decoded_content = response.content.decode('utf-8')
+                return transformer(json.loads(decoded_content))
+            else:
+                raise HTTPException(
+                    status_code=response.status_code,
+                    detail="Expense Client failed to communicate with expense service."
+                )
+        except Exception as e:
+            raise HTTPException(
+                status_code=500,
+                detail="Exception in expense summary: " + str(e)
+            )
