@@ -2,13 +2,18 @@ build: package
 	@echo "##################################################"
 	@echo "Building containers..."
 	docker-compose up --build
-	@echo "Compelted building containers."
+	@echo "Completed building containers."
 
 build_tests:
 	@echo "##################################################"
 	@echo "Building microservices tests..."
 	docker-compose build sync
-	@echo "Compelted building microservice tests.""
+	@echo "Completed building microservice tests."
+
+test_views:
+	@echo "##################################################"
+	@echo "Running expense views tests..."
+	cd microservices/expense && pytest tests/test_views.py -s -vvv
 
 down:
 	docker-compose down
@@ -20,7 +25,7 @@ data:
 	@echo "##################################################"
 	@echo "Creating $(n) fake Up transactions..."
 	@cd microservices/bank/data && .venv-faker/bin/python -m create_up_transactions $(n)
-	@echo "Compelted creating fake Up transactions."
+	@echo "Completed creating fake Up transactions."
 	
 
 package: transaction token bank expense sync
@@ -29,12 +34,12 @@ expense:
 	@echo "##################################################"
 	@echo "Packaging expense SDK..."
 	@cd microservices/expense/src/sdk && python3 -m build;
-	@echo "Compelted packaging expenses SDK."
+	@echo "Completed packaging expenses SDK."
 	@echo "##################################################"
 	@echo "Copying SDK to dependent services..."
 	@cp microservices/expense/src/sdk/dist/expense_client-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/expense/src/sdk/dist/expense_client-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
-	@echo "Compelted copying expenses SDK to dependent services."
+	@echo "Completed copying expenses SDK to dependent services."
 
 transaction:
 	@echo "##################################################"
@@ -44,7 +49,7 @@ transaction:
 	@echo "Copying SDK to dependent services..."
 	@cp microservices/transaction/src/sdk/dist/transaction_client-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/transaction/src/sdk/dist/transaction_client-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
-	@echo "Compelted."
+	@echo "Completed."
 
 token:
 	@echo "##################################################"
