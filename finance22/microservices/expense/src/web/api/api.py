@@ -13,25 +13,17 @@ from src.service.exceptions import ExpenseNotFoundError
 
 from src.web.app import app
 from src.web.api.schemas import GetExpenseSchema, CreateExpenseSchema
-
+from src.repository.sql.views import (
+    get_breakdown_of_expenses_by_parent_categories,
+    get_breakdown_of_parent_category_by_subcategories
+)
 
 @app.get("/summary")
-async def aggregate_expenses(
-    start_date: datetime = Query(None, description="Optional start date for filtering (YYYY-MM-DD)"),
-    end_date: datetime = Query(None, description="Optional end date for filtering (YYYY-MM-DD)"),
-):
-    with UnitOfWork() as unit_of_work:
-        repo = ExpenseRepository(unit_of_work.session)
-        expense_service = ExpenseService(repo)
-        aggregated_data = expense_service.aggregate_by_parent_category(
-        start_date=start_date, 
-        end_date=end_date
-    )
-    return {
-        "start_date": start_date,
-        "end_date": end_date,
-        "summary": aggregated_data
-    }
+async def breakdown_expenses(parent_category: str | None = Query(None)):
+    if parent_category:
+        return get_breakdown_of_parent_category_by_subcategories(parent_category)
+    else:
+        return get_breakdown_of_expenses_by_parent_categories()
 
 
 @app.get("/expense")
