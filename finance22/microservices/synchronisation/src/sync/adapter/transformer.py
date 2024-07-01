@@ -1,18 +1,29 @@
-def fromUp_to_expensesDB(data):
+def format(category):
+        return category.replace("-and-", " & ").replace("-", " ").title()
+
+def fromUp_to_expenseDB(data):
     try:
         attributes = data["attributes"]
         relationships = data["relationships"]
 
-        parent_category = relationships["parentCategory"]["data"]["id"] if relationships["parentCategory"]["data"] else None
-        child_category = relationships["category"]["data"]["id"] if relationships["category"]["data"] else None
+        parent_category = (
+            format(relationships["parentCategory"]["data"]["id"]) 
+            if relationships["parentCategory"]["data"] 
+            else None
+        )
+        child_category = (
+            format(relationships["category"]["data"]["id"])
+            if relationships["category"]["data"] 
+            else None
+        )
         amount = float(attributes["amount"]["value"])
-
+        
         return {
             "transaction_id": data["_id"],
             "user_id": data["user"],
             "created": data["createdAt"],
-            "parent_category": parent_category,
-            "child_category": child_category,
+            "parent_category": format(parent_category),
+            "child_category": format(child_category),
             "amount": amount,
         }
 
@@ -33,8 +44,16 @@ def fromUp_to_transactionDB(data):
         attributes = data["attributes"]
         relationships = data["relationships"]
 
-        parent_category = relationships["parentCategory"]["data"]["id"] if relationships["parentCategory"]["data"] else None
-        child_category = relationships["category"]["data"]["id"] if relationships["category"]["data"] else None
+        parent_category = (
+            format(relationships["parentCategory"]["data"]["id"]) 
+            if relationships["parentCategory"]["data"] 
+            else None
+        )
+        child_category = (
+            format(relationships["category"]["data"]["id"])
+            if relationships["category"]["data"] 
+            else None
+        )
         amount = float(attributes["amount"]["value"])
 
         return {
