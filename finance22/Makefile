@@ -49,7 +49,7 @@ transaction:
 	@echo "Copying SDK to dependent services..."
 	@cp microservices/transaction/src/sdk/dist/transaction_client-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/transaction/src/sdk/dist/transaction_client-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
-	@echo "Completed."
+	@echo "Completed copying transaction SDK files to dependent services."
 
 token:
 	@echo "##################################################"
@@ -59,6 +59,7 @@ token:
 	@echo "Copying SDK to dependent services..."
 	@cp microservices/token/src/sdk/dist/token_client-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/token/src/sdk/dist/token_client-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
+	@echo "Completed copying token SDK files to dependent services."
  
 bank:
 	@echo "##################################################"
@@ -68,6 +69,7 @@ bank:
 	@echo "Copying SDK to dependent services..."
 	@cp microservices/bank/src/sdk/dist/bank_client-0.0.0-py3-none-any.whl microservices/synchronisation/dependencies/
 	@cp microservices/bank/src/sdk/dist/bank_client-0.0.0-py3-none-any.whl microservices/backend-for-frontend/dependencies/
+	@echo "Completed copying bank SDK files to dependent services."
 
 sync:
 	@echo "##################################################"
