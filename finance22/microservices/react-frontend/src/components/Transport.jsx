@@ -13,7 +13,7 @@ const Transport = () => {
   const user = JSON.parse(localStorage.getItem('user')) || { email: '' };
 
   const { data: expenseData, error, isValidating } = useSWR(
-    shouldFetch ? `http://localhost:8000/v1/category?user_id=${user.email}&category=Transport` : null,
+    shouldFetch ? `http://localhost:8000/v1/chart?parent=Transport` : null,
     fetcher,
     {
       revalidateOnFocus: false,
@@ -25,7 +25,7 @@ const Transport = () => {
 
   const handleRefresh = () => {
     setShouldFetch(true);
-    mutate(`http://localhost:8000/v1/category?user_id=${user.email}&category=Transport`);
+    mutate(`http://localhost:8000/v1/chart?parent=Transport`);
   };
 
   if (isValidating) {

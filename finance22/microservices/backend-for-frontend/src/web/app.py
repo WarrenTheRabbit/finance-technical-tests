@@ -11,10 +11,11 @@ from src.services.services import ping_up_api
 from bank_client import BankClient
 from expense_client import ExpenseClient
 from sync.adapter.transformer import fromUp_to_transactionDB
+from src.adapter.expense import (
+    represent_child_category_data_as_donut,
+    represent_parent_category_data_as_donut
+)
 
-#TODO: Create a JS SDK for each endpoint.
-#TODO: Add dummy data.
-#TODO: Connect endpoints to real microservices.
 
 app = FastAPI()
 app.add_middleware(
@@ -91,6 +92,17 @@ async def get_expenses(
         ]
     
 
+@app.get("/v1/chart")
+async def get_chart_data(parent: Optional[str] = Query(None)):
+    client = ExpenseClient()
+    print(parent)
+    if parent is None:
+        return client.create_expense_report_by_parent_categories(represent_parent_category_data_as_donut)
+    else:
+        return client.create_parent_category_report_by_child_categories(
+            parent,
+            represent_child_category_data_as_donut)
+        
 
 @app.post("/v1/pat")
 async def use_pat(pat = Body(..., example={"pat": "e"})):

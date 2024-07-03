@@ -15,7 +15,7 @@ const Dashboard = () => {
   const user = JSON.parse(localStorage.getItem('user')) || { user_id: 'username' };
 
   const { data: expenseData, error, isValidating } = useSWR(
-    shouldFetch ? `http://localhost:8000/v1/category?user_id=${user.user_id}` : null,
+    shouldFetch ? `http://localhost:8000/v1/chart` : null,
     fetcher,
     {
       revalidateOnFocus: false,
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   const handleRefresh = () => {
     setShouldFetch(true); // Set shouldFetch to true to trigger refetch
-    mutate(`http://localhost:8000/v1/expenses?email=${user.email}`); // Manually trigger mutate to refetch
+    mutate(`http://localhost:8000/v1/chart`); // Manually trigger mutate to refetch
   };
 
   if (isValidating) {

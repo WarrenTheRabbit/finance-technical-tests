@@ -18,7 +18,7 @@ from src.repository.sql.views import (
     get_breakdown_of_parent_category_by_subcategories
 )
 
-@app.get("/summary")
+@app.get("/v1/summary")
 async def breakdown_expenses(parent_category: str | None = Query(None)):
     if parent_category:
         return get_breakdown_of_parent_category_by_subcategories(parent_category)
