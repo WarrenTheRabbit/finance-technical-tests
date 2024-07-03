@@ -6,9 +6,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
+import SurfingRoundedIcon from '@mui/icons-material/SurfingRounded';
+import CommuteRoundedIcon from '@mui/icons-material/CommuteRounded';
+import ChildFriendlyRoundedIcon from '@mui/icons-material/ChildFriendlyRounded';
+import DryCleaningRoundedIcon from '@mui/icons-material/DryCleaningRounded';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import CommuteIcon from '@mui/icons-material/Commute';
 import PersonIcon from '@mui/icons-material/Person';
+import logo from '../assets/images/logo.svg';  // Import the logo SVG
 
 const CustomMenuIcon = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -72,27 +78,27 @@ const Sidebar = ({ user, onButtonClick = () => {}, activeButton }) => {
 
       <List sx={{ width: '100%' }}>
         <ListItem button onClick={() => handleNavigation('dashboard')} selected={activeButton === 'dashboard'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
-          <HomeIcon sx={{ marginBottom: 0.5 }} />
+          <DashboardRoundedIcon sx={{ color: '#6760f1', fontSize: 40, marginBottom: 0.5 }} />
           <ListItemText primary="Dashboard" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
         <ListItem button onClick={() => handleNavigation('good-life')} selected={activeButton === 'good-life'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
-          <SportsSoccerIcon sx={{ marginBottom: 0.5 }} />
+          <SurfingRoundedIcon sx={{ color: '#6760f1', fontSize: 40, marginBottom: 0.5 }} />
           <ListItemText primary="Good Life" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
         <ListItem button onClick={() => handleNavigation('transport')} selected={activeButton === 'transport'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
-          <CommuteIcon sx={{ marginBottom: 0.5 }} />
+          <CommuteRoundedIcon sx={{ color: '#6760f1', fontSize: 40, marginBottom: 0.5 }} />
           <ListItemText primary="Transport" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
         <ListItem button onClick={() => handleNavigation('personal')} selected={activeButton === 'personal'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
-          <PersonIcon sx={{ marginBottom: 0.5 }} />
+          <ChildFriendlyRoundedIcon sx={{ color: '#6760f1', fontSize: 40, marginBottom: 0.5 }} />
           <ListItemText primary="Personal" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
         <ListItem button onClick={() => handleNavigation('home')} selected={activeButton === 'home'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 2 }}>
-          <HomeIcon sx={{ marginBottom: 0.5 }} />
+          <DryCleaningRoundedIcon sx={{ color: '#6760f1', fontSize: 40, marginBottom: 0.5 }} />
           <ListItemText primary="Home" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
         <ListItem button onClick={() => handleNavigation('*')} selected={activeButton === '*'} sx={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginTop: 'auto', marginBottom: 2 }}>
-          <ExitToAppIcon sx={{ marginBottom: 0.5 }} />
+          <ExitToAppIcon sx={{ color: '#6760f1', fontSize: 40, marginBottom: 0.5 }} />
           <ListItemText primary="Sign Out" primaryTypographyProps={{ fontFamily: 'Inria Sans', fontWeight: 'bold' }} />
         </ListItem>
       </List>
@@ -102,13 +108,13 @@ const Sidebar = ({ user, onButtonClick = () => {}, activeButton }) => {
   return (
     <>
       <AppBar position="fixed" sx={{ display: { xs: 'flex', md: 'none' }, backgroundColor: '#384049' }}>
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Toolbar sx={{ justifyContent: 'center' }}>
           <MuiIconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2 }}
+            sx={{ position: 'absolute', left: '10px' }}
           >
             <CustomMenuIcon>
               <div></div>
@@ -116,9 +122,12 @@ const Sidebar = ({ user, onButtonClick = () => {}, activeButton }) => {
               <div></div>
             </CustomMenuIcon>
           </MuiIconButton>
-          <Typography variant="h4" noWrap component="div" sx={{ flexGrow: 1, textAlign: 'center', fontFamily: 'Jomhuria', fontSize: '48px', background: 'linear-gradient(90deg, #4b99c1, #3572bd)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', ml: '-24px' }}>
-            UPLift
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box component="img" src={logo} alt="Logo" sx={{ width: 32, height: 32, marginRight: 1 }} />
+            <Typography variant="h4" noWrap component="div" sx={{ textAlign: 'center', fontFamily: 'Lily Script One', fontSize: '32px', background: 'linear-gradient(90deg, #4b99c1, #3572bd)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              UPLift
+            </Typography>
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer

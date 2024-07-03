@@ -2,8 +2,7 @@ import useSWR, { mutate } from 'swr';
 import React, { useState } from 'react';
 import { Box, Typography, Grid, Button, Link } from '@mui/material';
 import ProcessingPage from './ProcessingPage';
-import TransportDonutChart from './TransportDonutChart';
-import TransportTable from './TransportTable';
+import TransportBarChart from './TransportBarChart';
 import FacebookLogo from '../assets/images/facebook-logo.svg';
 import InstagramLogo from '../assets/images/instagram-logo.svg';
 
@@ -38,16 +37,13 @@ const Transport = () => {
       <Typography variant="h5" gutterBottom sx={{ fontFamily: 'Inter', fontSize: 15, fontWeight: 'bold', color: '#afbdc7', marginTop: '50px' }}>
         Transport
       </Typography>
-      <Box sx={{ flexGrow: 1, padding: '20px', marginTop: '5px', bgcolor: "#fff", borderRadius: "16px", maxWidth: '100%', marginLeft: 'auto', marginRight: 'auto' }}>
+      <Box sx={{ flexGrow: 1, padding: '20px', marginTop: '5px', bgcolor: "#fff", borderRadius: "16px", width: '100%', marginLeft: 'auto', marginRight: 'auto' }}>
         <Typography variant="h6" gutterBottom sx={{ fontFamily: 'Inter', fontWeight: 'bold', color: '#808080', fontSize: '14px' }}>
           Expenses
         </Typography>
         <Grid container spacing={2} justifyContent={"center"} alignItems={"center"}>
           <Grid item xs={12} md={6}>
-            <TransportDonutChart data={expenseData || []} />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <TransportTable data={expenseData || []} />
+            <TransportBarChart data={expenseData || []} />
           </Grid>
         </Grid>
       </Box>
