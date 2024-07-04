@@ -33,7 +33,7 @@ class ExpenseClient:
     def create_expense_report_by_parent_categories(self, transformer):
         try:
             response = requests.get(
-                    "http://expense:8000/summary", 
+                    "http://expense:8000/v1/summary", 
                     headers={"accept": "application/json"},
                     timeout=30  # Timeout after 5 seconds
                 )
@@ -54,7 +54,7 @@ class ExpenseClient:
     
     def create_parent_category_report_by_child_categories(self, parent_category, transformer):
         try:
-            url = uritemplate.expand("http://expense:8000/summary{?parent_category}", parent_category=parent_category)
+            url = uritemplate.expand("http://expense:8000/v1/summary{?parent_category}", parent_category=parent_category)
             print(url)
             response = requests.get(
                         url,
