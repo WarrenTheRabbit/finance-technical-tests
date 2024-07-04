@@ -45,7 +45,9 @@ def get_transactions(parent_category: Optional[str] = None,
     return {"transactions": [result.dict() for result in results]}
 
 
-@app.post("/transactions", status_code=status.HTTP_201_CREATED, response_model=GetTransactionSchema)
+@app.post("/transactions", 
+          status_code=status.HTTP_201_CREATED, 
+          response_model=GetTransactionSchema)
 def create_transaction(payload: CreateTransactionSchema):
     with UnitOfWork() as unit_of_work:
         repo = TransactionsRepository(unit_of_work.session)
@@ -53,7 +55,7 @@ def create_transaction(payload: CreateTransactionSchema):
         try:            
             transaction = transactions_service.store_transaction(
                 **payload.model_dump())
-            return_payload = transaction.dict()
+            response = transaction.dict()
             unit_of_work.commit()
         except IntegrityError as e:
             if "UNIQUE constraint failed: transaction.transaction_id" in str(e):
@@ -62,7 +64,7 @@ def create_transaction(payload: CreateTransactionSchema):
                 raise HTTPException(status_code=422, detail=f"{e.orig} for {payload.transaction_id}")
             else:
                 raise HTTPException(status_code=500, detail="Database integrity error")      
-    return return_payload
+    return response
 
 
 @app.get("/transactions/{transaction_id}", response_model=GetTransactionSchema)
