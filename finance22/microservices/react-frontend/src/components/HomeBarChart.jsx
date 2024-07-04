@@ -51,7 +51,7 @@ const HomeBarChart = ({ data }) => {
             <LabelList 
               dataKey="amount" 
               position="right" 
-              formatter={(value) => `$${value}`} 
+              formatter={(value) => `$${Math.floor(value)}`} 
               style={{ fontFamily: 'Inria Sans', fontSize: 13, fontWeight: 'bold', fill: '#384049' }} 
             />
           </Bar>
