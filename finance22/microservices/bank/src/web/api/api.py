@@ -3,7 +3,7 @@ import json
 
 
 from datetime import datetime
-from fastapi import HTTPException, Query
+from fastapi import HTTPException, Query, Request
 from typing import Optional
 
 from pathlib import Path
@@ -27,6 +27,9 @@ async def load_full_bank_history(user_id):
         # token = token_client.get_token(user_id)
         return service.load_history(bearer="up:yeah:L9C5xLOgo79WoJnEqwnvCVV7uePqcMi0G3M9pNpqW57OMjTgg8sIQKvt9THUn4KMT7vIdt380DvpcyDPDKHCes92CDfIbi4S0Mp2IPcKWFqrJ6xJrkRzShHrgTI13V6n", user=user_id)
 
+@app.get("/v2/test")
+async def test_view(request: Request):
+    return request.state.user_id
 
 @app.get("/v2/fake_history/{user_id}")
 async def load_full_fake_bank_history(user_id):
