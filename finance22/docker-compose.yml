@@ -16,9 +16,12 @@ services:
     ports:
       - "8001:8000"
     volumes:
+    # - type: bind
+    #   source: microservices/bank/data/
+    #   target: /app/data/
     - type: bind
-      source: microservices/bank/data/
-      target: /app/data/
+      source: microservices/bank/src
+      target: /app/src
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/  
     depends_on:
