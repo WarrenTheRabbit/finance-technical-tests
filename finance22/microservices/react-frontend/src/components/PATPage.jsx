@@ -66,8 +66,6 @@ const PATPage = () => {
           </Typography>
           <Typography variant="body1" sx={{ color: '#fff', fontFamily: 'Inria Sans', fontSize: 14, mb: 2, textAlign: 'left' }}>
             Instruction: Please click <Link href="https://api.up.com.au/getting_started" target="_blank" rel="noopener noreferrer" sx={{ color: '#fff', textDecoration: 'underline' }}>this link</Link>, follow the instructions on that page and paste your token below.
-
-            up:yeah:L9C5xLOgo79WoJnEqwnvCVV7uePqcMi0G3M9pNpqW57OMjTgg8sIQKvt9THUn4KMT7vIdt380DvpcyDPDKHCes92CDfIbi4S0Mp2IPcKWFqrJ6xJrkRzShHrgTI13V6n
           </Typography>
           <TextField
             label="Personal Access Token"
