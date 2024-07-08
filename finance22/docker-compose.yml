@@ -16,9 +16,9 @@ services:
     ports:
       - "8001:8000"
     volumes:
-    # - type: bind
-    #   source: microservices/bank/data/
-    #   target: /app/data/
+    - type: bind
+      source: microservices/bank/data/
+      target: /app/data/
     - type: bind
       source: microservices/bank/src
       target: /app/src
