@@ -27,7 +27,7 @@ const GoodLifeBarChart = ({ data }) => {
         <BarChart 
           layout="vertical" 
           data={formattedData} 
-          margin={{ top: 20, bottom: 20, left: 20, right: 5 }} // Adjust right margin for label space
+          margin={{ top: 20, bottom: 20, left: 20, right: 38 }} // Adjust right margin for label space
           barCategoryGap="10%" // Increased gap between bars
         >
           <XAxis type="number" hide={true} />
@@ -48,7 +48,7 @@ const GoodLifeBarChart = ({ data }) => {
             {formattedData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
             ))}
-            <LabelList dataKey="amount" position="right" formatter={(value) => `$${value}`} style={{ fontFamily: 'Inria Sans', fontSize: 13, fontWeight: 'bold', fill: '#384049' }} />
+            <LabelList dataKey="amount" position="right" formatter={(value) => `$${Math.floor(value)}`} style={{ fontFamily: 'Inria Sans', fontSize: 13, fontWeight: 'bold', fill: '#384049' }} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
