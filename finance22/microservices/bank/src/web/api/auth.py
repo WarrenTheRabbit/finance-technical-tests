@@ -1,26 +1,38 @@
-from pathlib import Path
-
+import requests
 import jwt
+from pathlib import Path
 from cryptography.x509 import load_pem_x509_certificate
 
-certificate_text = (
-    Path(__file__).parent.parent.parent.parent / "public_bank_key.pem"
-).read_text()
-print(certificate_text)
-certificate = load_pem_x509_certificate(certificate_text.encode())
-print(certificate)
-public_key = certificate.public_key()
-print(public_key)
+
+X509_CERT_TEMPLATE = "-----BEGIN CERTIFICATE-----\n{key}\n-----END CERTIFICATE-----"
+
+public_keys = requests.get(
+    "https://dev-g8dndttfnmxy2boy.us.auth0.com/.well-known/jwks.json"
+).json()["keys"]
+
+def _get_certificate_for_kid(kid):
+    for key in public_keys:
+        if key["kid"] == kid:
+            return key["x5c"][0]
+    raise Exception(f"Not matching key found for kid {kid}")
+
+def load_public_key_from_x509_cert(certificate):
+    return load_pem_x509_certificate(certificate).public_key()
 
 def decode_and_validate_token(access_token):
     """
     Return payload if token is valid.
     """
+    unverified_headers = jwt.get_unverified_header(access_token)
+    x509_certificate = _get_certificate_for_kid(unverified_headers["kid"])
+    public_key = load_public_key_from_x509_cert(
+        X509_CERT_TEMPLATE.format(key=x509_certificate).encode("utf-8")
+    )
     return jwt.decode(
         access_token,
         key=public_key,
-        algorithms=["RS256"],
-        audience=["http://bank:8000/bank_history"]
+        algorithms=unverified_headers["alg"],
+        audience=["http://bank:8000"]
     )
 
 def generate_jwt():

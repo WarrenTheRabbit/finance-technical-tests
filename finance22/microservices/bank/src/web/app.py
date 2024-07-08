@@ -1,4 +1,7 @@
 import os
+import yaml
+
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -25,6 +28,10 @@ from src.web.api.auth import decode_and_validate_token
 
 app = FastAPI(debug=True)
 
+# oas_doc = yaml.safe_load((Path(__file__).parent.parent.parent /"oas.yaml").read_text())
+
+# app.openapi = lambda: oas_doc
+
 class AuthorizeRequestMiddleware(BaseHTTPMiddleware):
     # TODO: set bypasses for docs, preflight, debugging.
     # TODO: extract bearer token
@@ -36,7 +43,9 @@ class AuthorizeRequestMiddleware(BaseHTTPMiddleware):
     # TODO: return 401 if token is invalid.
     async def dispatch(
         self, request: Request, call_next: RequestResponseEndpoint
-    ) -> Response:
+    ) -> Response:   
+        request.state.user_id = 'username'
+        return await call_next(request)         
         if request.url.path in ["/docs", "/openapi.json"]:
             return await call_next(request)
         if request.method == "OPTIONS":
