@@ -29,20 +29,20 @@ def up_history():
     collection = db["transactions"]
     collection.delete_many({})
     client.close()
-    bank = BankClient(user="username")
+    bank = BankClient()
     bank.load_fake_history()
     return bank.transactions
     
 
 def test_that_bank_microservice_can_process_bank_history(delete_all_documents):
-    bank = BankClient(user="username")
+    bank = BankClient()
     result = bank.load_history()
-    assert result['new transactions synchronised'] == 139
+    assert result['new transactions synchronised'] == 146
     assert result['existing transactions skipped'] == 0
     
     result = bank.load_history()
     assert result['new transactions synchronised'] == 0
-    assert result['existing transactions skipped'] == 139
+    assert result['existing transactions skipped'] == 146
 
 
 def test_that_transaction_microservice_can_process_bank_history(up_history):
