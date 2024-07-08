@@ -108,9 +108,8 @@ async def get_chart_data(parent: Optional[str] = Query(None)):
 async def use_pat(pat = Body(..., example={"pat": "e"})):
     try:
         ping_up_api(pat['pat'])
-        bank = BankClient(user="username", token=pat['pat'])
+        bank = BankClient()
         expense_client = ExpenseClient(user="username")
-        
         bank.load_fake_history()
         for transaction in bank.transactions:
             expense_client.add_expense(transaction, fromUp_to_transactionDB)
@@ -144,7 +143,7 @@ async def login(credentials: UserCredentials):
     try:
         if username == mock_user['user_id'] and mock_user['password'] == password:
             bank = bank_client.BankClient(
-                base_url="http://bank:8000/v2/bank_history/username"
+                base_url="http://bank:8000/v2/bank_history/"
             )
             return bank.load_history()
         else:

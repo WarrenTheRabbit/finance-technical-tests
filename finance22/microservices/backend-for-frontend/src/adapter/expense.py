@@ -6,7 +6,7 @@ def represent_child_category_data_as_donut(data):
     for category in data:
         entry = {
             "subcategory": category['category'],
-            "amount": category['amount'] * -1,
+            "amount": f"{category['amount'] * -1:.2f}",
             "percentage": (category['amount'] / total) * 100
         }
         result.append(entry)
@@ -20,7 +20,7 @@ def represent_parent_category_data_as_donut(data):
     for category in data:
         entry = {
             "category": category['category'],
-            "amount": category['amount'] * -1,
+            "amount": float(f"{category['amount'] * -1:.2f}"),
             "percentage": (category['amount'] / total) * 100
         }
         result.append(entry)
